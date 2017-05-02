@@ -15,7 +15,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>10.3</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -42,6 +42,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Fonts/Montserrat-Light.otf</string>
+		<string>Fonts/Montserrat-Bold.otf</string>
 	</array>
 </dict>
 </plist>

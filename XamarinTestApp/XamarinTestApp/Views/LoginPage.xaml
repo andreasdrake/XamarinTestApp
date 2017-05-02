@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:XamarinTestApp.Controls"
+             x:Class="XamarinTestApp.Views.LoginPage" BackgroundImage="loginPage-background.png" BackgroundColor="Red">
+
+    <Grid Margin="40,60,40,0">
+        <Grid.RowDefinitions> 
+            <RowDefinition Height="Auto"/> <!-- 0: Logga -->
+            <RowDefinition Height="30"/> <!-- 1: Utrymme mellan logga och Consult label-->
+            <RowDefinition Height="Auto"/> <!-- 2: Consult -->
+            <RowDefinition Height="27"/> <!-- 3: Utrymme mellan Consult label och Timereporter App label-->
+            <RowDefinition Height="Auto"/> <!-- 4: Timereporter Application -->
+            <RowDefinition Height="100"/> <!-- 5: Utrymme mellan Timereporter App label och USERNAME App label-->
+            <RowDefinition Height="Auto"/> <!-- 6: USERNAME -->
+            <RowDefinition Height="Auto"/> <!-- 7: Username - Entry -->
+            <RowDefinition Height="Auto"/> <!-- 8: PASSWORD -->
+            <RowDefinition Height="Auto"/> <!-- 9: Password - Entry -->
+        </Grid.RowDefinitions>
+        <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />
+        <Label Text="Consult" Grid.Row="2" Style="{StaticResource LoginPageLabelTitleStyle}" HorizontalOptions="Center"/>
+        
+        <Label Grid.Row="4" Text="Timereporter Application" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
+
+        <Label Grid.Row="6" Text="USERNAME" Style="{StaticResource LoginPageLabelUnderTitleStyle}" HorizontalOptions="Start"/>
+        <custom:CustomEntry Grid.Row="7" Style="{StaticResource LoginPageCustomEntry}" Margin="-10,0,-10,0" Opacity="0.8"/>
+        <Label Grid.Row="8" Text="PASSWORD" Style="{StaticResource LoginPageLabelUnderTitleStyle}" HorizontalOptions="Start" Margin="0,10,0,0"/>
+        <custom:CustomEntry Grid.Row="9" Style="{StaticResource LoginPageCustomEntry}" Margin="-10,0,-10,0" Opacity="0.8" IsPassword="True" />
+    </Grid>
+    
+    
+    <!--<StackLayout Orientation="Vertical" Margin="0,20,0,0">
+        <Label Text="Andreas" TextColor="White"/>
+        <Button Text="Test" Command="{Binding LoginCommand}"/>
+    </StackLayout>-->
+</ContentPage>

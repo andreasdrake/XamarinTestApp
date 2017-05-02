@@ -1,7 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinTestApp.App">
-  <Application.Resources>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:custom="clr-namespace:XamarinTestApp.Controls"
+             x:Class="XamarinTestApp.App" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d1p1:Ignorable="d" 
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Application.Resources>
         <ResourceDictionary>
+            <Style  x:Key="LoginPageLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <!-- 
+        <Label Grid.Row="2" FontSize="18" FontFamily="Montserrat-Bold" Text="Consult" HorizontalOptions="Center"/>-->
+            <Style x:Key="LoginPageLabelTitleStyle" TargetType="Label"
+                   BasedOn="{StaticResource LoginPageLabelStyle}">
+                <Setter Property="FontFamily" Value="Montserrat-Bold" />
+                <Setter Property="FontSize" Value="30"/>
+            </Style>
+
+            <Style x:Key="LoginPageLabelUnderTitleStyle" TargetType="Label"
+                   BasedOn="{StaticResource LoginPageLabelStyle}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontFamily" Value="Montserrat-Light" />
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+
+            <Style x:Key="LoginPageCustomEntry" TargetType="custom:CustomEntry">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#009f00"/>
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="LeftPadding" Value="10"/>
+                <Setter Property="RightPadding" Value="10"/>
+                <Setter Property="BorderWidth" Value="0"/>
+                <Setter Property="BorderRadius" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/> 
+            </Style>
+            
+            <!--<Style x:Key="LoginPageLabelUnderlinedStyle" TargetType="Label"
+                   BasedOn="{StaticResource LoginPageLabelStyle}">
+
+                <Setter Property="FontFamily" Value="Montserrat-Light" />
+                <Setter Property="FontSize" Value="18"/>
+            </Style>-->
+
+
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="PrimaryDark">#1976D2</Color>
             <Color x:Key="Accent">#96d1ff</Color>
@@ -9,11 +54,11 @@
             <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
             <Color x:Key="LightTextColor">#999999</Color>
-
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+            <!--<vm:ViewModelLocator d4p1:Key="Locator" d:IsDataSource="True" xmlns:d4p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:vm="clr-namespace:XamarinTestApp.ViewModel" />-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>
