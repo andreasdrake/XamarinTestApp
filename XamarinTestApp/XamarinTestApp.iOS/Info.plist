@@ -44,5 +44,10 @@
 		<string>Fonts/Montserrat-Light.otf</string>
 		<string>Fonts/Montserrat-Bold.otf</string>
 	</array>
+
+  <key>UIStatusBarStyle</key>
+  <string>UIStatusBarStyleLightContent</string>
+  <key>UIViewControllerBasedStatusBarAppearance</key>
+  <false/>
 </dict>
 </plist>

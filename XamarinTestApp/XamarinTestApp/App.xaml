@@ -8,11 +8,14 @@
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Application.Resources>
         <ResourceDictionary>
+
+
+            <Color x:Key="PrimaryColor2">#009f00</Color>
+            
             <Style  x:Key="LoginPageLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White"/>
             </Style>
-            <!-- 
-        <Label Grid.Row="2" FontSize="18" FontFamily="Montserrat-Bold" Text="Consult" HorizontalOptions="Center"/>-->
+          
             <Style x:Key="LoginPageLabelTitleStyle" TargetType="Label"
                    BasedOn="{StaticResource LoginPageLabelStyle}">
                 <Setter Property="FontFamily" Value="Montserrat-Bold" />
@@ -27,9 +30,9 @@
             </Style>
 
 
-            <Style x:Key="LoginPageCustomEntry" TargetType="custom:CustomEntry">
+            <Style x:Key="LoginPageCustomEntryStyle" TargetType="custom:CustomEntry">
                 <Setter Property="TextColor" Value="White"/>
-                <Setter Property="BackgroundColor" Value="#009f00"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor2}"/>
                 <Setter Property="Opacity" Value="0.8"/>
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="LeftPadding" Value="10"/>
@@ -45,7 +48,15 @@
                 <Setter Property="FontFamily" Value="Montserrat-Light" />
                 <Setter Property="FontSize" Value="18"/>
             </Style>-->
-
+            <Style x:Key="LoginButtonStyle" TargetType="Button">
+                <Setter Property="FontFamily" Value="Montserrat-Bold" />
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="BorderRadius" Value="20"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor2}"/>
+            </Style>
 
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="PrimaryDark">#1976D2</Color>

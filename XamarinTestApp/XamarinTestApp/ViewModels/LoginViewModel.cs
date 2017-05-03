@@ -11,19 +11,33 @@ namespace XamarinTestApp.ViewModels
 {
     public class LoginViewModel: ExtendedViewModelBase
     {
+        private readonly Action<string> _onUserLoggedInSuccessful;
+        public LoginViewModel(Action<string> onUserLoggedInSuccessful)
+        {
+            _onUserLoggedInSuccessful = onUserLoggedInSuccessful ?? throw new ArgumentNullException(nameof(onUserLoggedInSuccessful));
+        }
+
         private string _userName = string.Empty;
         private string _password = string.Empty;
 
         public string UserName
         {
             get { return _userName; }
-            set { Set(ref _userName, value); }
+            set
+            {
+                Set(ref _userName, value);
+                RaisePropertyChanged("LoginCommand");
+            }
         }
 
         public string Password
         {
             get { return _password; }
-            set { Set(ref _password, value); }
+            set
+            {
+                Set(ref _password, value);
+                RaisePropertyChanged("LoginCommand");
+            }
         }
 
         public ICommand LoginCommand
@@ -34,7 +48,12 @@ namespace XamarinTestApp.ViewModels
 
         private async Task DoLoginAsync()
         {
+            BusyText = "Logging in...";
+            IsBusy = true;
             await Task.Delay(2000);
+            IsBusy = false;
+            BusyText = string.Empty;
+            _onUserLoggedInSuccessful(UserName);
         }
 
         private bool CanLogin()
