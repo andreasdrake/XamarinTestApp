@@ -15,15 +15,19 @@ namespace XamarinTestApp
 
             SetMainPage();
         }
-
+        // Kolla här för att gå från login page till main page
+        //https://github.com/xamarin/xamarin-forms-samples/blob/master/MobileCRM/MobileCRM.Shared/Pages/RootPage.cs
         public static void SetMainPage()
         {
-            var nav = new NavigationPage(new LoginPage { BindingContext = new LoginViewModel() });
+            var loginPage = new LoginPage { BindingContext = new LoginViewModel() };
+            //loginPage.SetValue(NavigationPage.BarTextColorProperty, Color.White);
+            //loginPage.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Gray);
+            var nav = new NavigationPage(loginPage);
             nav.SetValue(NavigationPage.BarTextColorProperty, Color.White);
             nav.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Transparent);
 
 
-            Current.MainPage = nav;// new LoginPage();// { BindingContext = new LoginViewModel() };
+            Current.MainPage = loginPage;//nav;// new LoginPage();// { BindingContext = new LoginViewModel() };
                 
             //    new TabbedPage
             //{

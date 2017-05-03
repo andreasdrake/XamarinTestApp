@@ -40,7 +40,7 @@
     </Compile>
     <Compile Include="Controls\CustomEntry.cs" />
     <Compile Include="Controls\CustomNavigationPage.cs" />
-    <Compile Include="Controls\CustomLargeButton.cs" />
+    <Compile Include="Controls\CustomButton.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
