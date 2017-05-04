@@ -4,56 +4,70 @@
              xmlns:custom="clr-namespace:XamarinTestApp.Controls"
              x:Class="XamarinTestApp.Views.LoginPage"
              BackgroundImage="loginPage-background.png">
-    <ScrollView>
-        <Grid Margin="40,40,40,30">
-            <Grid.RowDefinitions> 
-                <RowDefinition Height="Auto"/> <!-- 0: Logga -->
-                <RowDefinition Height="Auto"/> <!-- 1: Consult -->
-                <RowDefinition Height="Auto"/> <!-- 2: Timereporter Application -->
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/> <!-- 4: USERNAME -->
-                <RowDefinition Height="Auto"/> <!-- 5: Username - Entry -->
-                <RowDefinition Height="Auto"/> <!-- 6: PASSWORD -->
-                <RowDefinition Height="Auto"/> <!-- 7: Password - Entry -->
-                <RowDefinition Height="Auto"/> <!-- 8: Login Button -->
-            
-            </Grid.RowDefinitions>
-            <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />
-            <Label Text="Consult" Grid.Row="1" Style="{StaticResource LoginPageLabelTitleStyle}" Margin="0,30,0,0" HorizontalOptions="Center"/>
-        
-            <Label Grid.Row="2" Text="Timereporter Application" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
-            <Grid Grid.Row="4" HorizontalOptions="Start">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+    <Grid>
+        <ScrollView>
+            <Grid Margin="40,40,40,30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/><!-- 0: Logga -->
+                    <RowDefinition Height="Auto"/><!-- 1: Consult -->
+                    <RowDefinition Height="Auto"/><!-- 2: Timereporter Application -->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/><!-- 4: USERNAME -->
+                    <RowDefinition Height="Auto"/><!-- 5: Username - Entry -->
+                    <RowDefinition Height="Auto"/><!-- 6: PASSWORD -->
+                    <RowDefinition Height="Auto"/><!-- 7: Password - Entry -->
+                    <RowDefinition Height="Auto"/><!-- 8: Login Button -->
 
-                <Image Source="user_small.png" Grid.Column="0" VerticalOptions="Center"/>
-                <StackLayout Grid.Column="1" Padding="0" HorizontalOptions="Start" Margin="7,0,0,0" VerticalOptions="Center">
-                    <Label Text="USERNAME" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
-                    <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
-                </StackLayout>
-            </Grid>
-            <custom:CustomEntry Text="{Binding Path=UserName, Mode=TwoWay}" Grid.Row="5" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8"/>
-        
-            <Grid Grid.Row="6" HorizontalOptions="Start" Margin="0,10,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+                </Grid.RowDefinitions>
+                <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />
+                <Label Text="Consult" Grid.Row="1" Style="{StaticResource LoginPageLabelTitleStyle}" Margin="0,30,0,0" HorizontalOptions="Center"/>
 
-                <Image Source="padlock_small.png" Grid.Column="0" VerticalOptions="Center" />
-                <StackLayout Grid.Column="1" Padding="0" HorizontalOptions="Start" Margin="7,0,0,0" VerticalOptions="Center">
-                    <Label Text="PASSWORD" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
-                    <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
-                </StackLayout>
-            </Grid>
-            <custom:CustomEntry Text="{Binding Path=Password, Mode=TwoWay}" Grid.Row="7" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8" IsPassword="True" />
-            <Button Margin="0,20,0,20" WidthRequest="150" Text="Sign in" 
+                <Label Grid.Row="2" Text="Timereporter Application" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
+                <Grid Grid.Row="4" HorizontalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="user_small.png" Grid.Column="0" VerticalOptions="Center"/>
+                    <StackLayout Grid.Column="1" Padding="0" HorizontalOptions="Start" Margin="7,0,0,0" VerticalOptions="Center">
+                        <Label Text="USERNAME" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
+                        <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
+                    </StackLayout>
+                </Grid>
+                <custom:CustomEntry Text="{Binding Path=UserName, Mode=TwoWay}" Grid.Row="5" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8"/>
+
+                <Grid Grid.Row="6" HorizontalOptions="Start" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="padlock_small.png" Grid.Column="0" VerticalOptions="Center" />
+                    <StackLayout Grid.Column="1" Padding="0" HorizontalOptions="Start" Margin="7,0,0,0" VerticalOptions="Center">
+                        <Label Text="PASSWORD" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
+                        <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
+                    </StackLayout>
+                </Grid>
+                <custom:CustomEntry Text="{Binding Path=Password, Mode=TwoWay}" Grid.Row="7" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8" IsPassword="True" />
+                <Button Margin="0,20,0,20" WidthRequest="150" Text="Sign in" 
                     Style="{StaticResource LoginButtonStyle}"
                     Grid.Row="8" Command="{Binding Path=LoginCommand}"/>
 
-        </Grid>
+            </Grid>
 
-    </ScrollView>
+        </ScrollView>
+        <Grid IsVisible="{Binding Path=IsBusy}" Opacity="0.75" BackgroundColor="Black"
+            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        <Grid HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding Path=IsBusy}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ActivityIndicator Color="{StaticResource PrimaryColor2}" IsRunning="{Binding Path=IsBusy}" Grid.Row="0"  />
+            <Label Text="{Binding Path=BusyText}" Style="{StaticResource LoginPageLabelUnderTitleStyle}" Grid.Row="1"/>
+        </Grid>
+        
+
+    </Grid>
 </ContentPage>

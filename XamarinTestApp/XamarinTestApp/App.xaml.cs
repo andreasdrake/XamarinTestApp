@@ -3,6 +3,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinTestApp.ViewModels;
+using Acr.UserDialogs;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XamarinTestApp
@@ -28,7 +29,7 @@ namespace XamarinTestApp
         public static void SetMainPage()
         {
             
-            var loginVm = new LoginViewModel(user => { });
+            var loginVm = new LoginViewModel(UserDialogs.Instance, user => { });
             var loginPage = new LoginPage { BindingContext = loginVm };
             
             //var nav = new NavigationPage(loginPage);

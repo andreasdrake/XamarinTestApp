@@ -99,6 +99,24 @@
     <IOSDebuggerPort>10000</IOSDebuggerPort>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Acr.Support.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.Support.2.1.0\lib\Xamarin.iOS10\Acr.Support.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.UserDialogs.6.3.11\lib\Xamarin.iOS10\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.UserDialogs.6.3.11\lib\Xamarin.iOS10\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.iOS, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -138,12 +156,16 @@
     <BundleResource Include="Resources\Fonts\Montserrat-Bold.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\Fonts\Montserrat-Regular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomNavigationPageRenderer.cs" />
+    <Compile Include="Renderers\GradientContentPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\profile_generic.png" />
@@ -205,6 +227,69 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\user_small%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner%403x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner%402x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner2%403x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner2%402x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner3%403x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner3%402x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner4%403x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spinner4%402x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jag%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jag%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jag2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jag2%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\jag2%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\green-checkmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\green-checkmark%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\green-checkmark%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

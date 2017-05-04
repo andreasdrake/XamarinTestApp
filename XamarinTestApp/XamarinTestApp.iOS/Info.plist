@@ -43,6 +43,7 @@
 	<array>
 		<string>Fonts/Montserrat-Light.otf</string>
 		<string>Fonts/Montserrat-Bold.otf</string>
+    <string>Fonts/Montserrat-Regular.otf</string>
 	</array>
 
   <key>UIStatusBarStyle</key>

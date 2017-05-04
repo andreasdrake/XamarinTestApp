@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using Acr.UserDialogs;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace XamarinTestApp.ViewModels
     public class LoginViewModel: ExtendedViewModelBase
     {
         private readonly Action<string> _onUserLoggedInSuccessful;
-        public LoginViewModel(Action<string> onUserLoggedInSuccessful)
+        public LoginViewModel(IUserDialogs dialogs, Action<string> onUserLoggedInSuccessful):base(dialogs)
         {
             _onUserLoggedInSuccessful = onUserLoggedInSuccessful ?? throw new ArgumentNullException(nameof(onUserLoggedInSuccessful));
         }
@@ -48,9 +49,16 @@ namespace XamarinTestApp.ViewModels
 
         private async Task DoLoginAsync()
         {
-            BusyText = "Logging in...";
+            //using (var pg = this.DialogsService.Loading("Signing in..."))
+            //{
+
+            //    await Task.Delay(5000);
+            //}
+
+
+            BusyText = "Signing in...";
             IsBusy = true;
-            await Task.Delay(2000);
+            await Task.Delay(6500);
             IsBusy = false;
             BusyText = string.Empty;
             _onUserLoggedInSuccessful(UserName);

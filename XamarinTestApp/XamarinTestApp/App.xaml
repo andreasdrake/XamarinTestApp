@@ -9,7 +9,10 @@
     <Application.Resources>
         <ResourceDictionary>
 
-
+            <Color x:Key="DefaultGradientStartBackgroundColor">#0d1829</Color>
+            <Color x:Key="DefaultGradientStopBackgroundColor">#080a0c</Color>
+            
+            <Color x:Key="DefaultBackgroundColor">#060c14</Color>
             <Color x:Key="PrimaryColor2">#009f00</Color>
             
             <Style  x:Key="LoginPageLabelStyle" TargetType="Label">
@@ -21,7 +24,11 @@
                 <Setter Property="FontFamily" Value="Montserrat-Bold" />
                 <Setter Property="FontSize" Value="30"/>
             </Style>
-
+            <Style x:Key="UserNameLabelStyle" TargetType="Label"
+                   BasedOn="{StaticResource LoginPageLabelStyle}">
+                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
             <Style x:Key="LoginPageLabelUnderTitleStyle" TargetType="Label"
                    BasedOn="{StaticResource LoginPageLabelStyle}">
                 <Setter Property="HorizontalOptions" Value="Center"/>
@@ -29,7 +36,11 @@
                 <Setter Property="FontSize" Value="12"/>
             </Style>
 
-
+            <Style x:Key="HoursAndDaysLabelStyle" TargetType="Label"
+                   BasedOn="{StaticResource LoginPageLabelTitleStyle}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
             <Style x:Key="LoginPageCustomEntryStyle" TargetType="custom:CustomEntry">
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor2}"/>
@@ -57,16 +68,21 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="TextColor" Value="{StaticResource PrimaryColor2}"/>
             </Style>
+            <Style x:Key="NormalButtonStyle" TargetType="Button" BasedOn="{StaticResource LoginButtonStyle}">
+                <Setter Property="TextColor" Value="White"/>
+                
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor2}"/>
+            </Style>
 
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="PrimaryDark">#1976D2</Color>
+            <Color x:Key="Primary">#009f00</Color>
+            <Color x:Key="PrimaryDark">#1976D2</Color> 
             <Color x:Key="Accent">#96d1ff</Color>
             <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
             <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
             <Color x:Key="LightTextColor">#999999</Color>
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarBackgroundColor" Value="#00FFFFFF" /> <!-- {StaticResource Primary}-->
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
             <!--<vm:ViewModelLocator d4p1:Key="Locator" d:IsDataSource="True" xmlns:d4p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:vm="clr-namespace:XamarinTestApp.ViewModel" />-->

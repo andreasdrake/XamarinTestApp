@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,13 @@ namespace XamarinTestApp.Views
 
         public RootPage()
         {
-            _loginViewModel = new LoginViewModel(OnUserLoggedIn);
+            _loginViewModel = new LoginViewModel(UserDialogs.Instance, OnUserLoggedIn);
             _loginPage = new LoginPage { BindingContext = _loginViewModel };
+
+            var navPage = new NavigationPage(new DashboardPage { BindingContext = new DashboardviewModel(UserDialogs.Instance) });
+            navPage.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Transparent);//, Color.FromHex("#060c14"));
             Master = new AboutPage();
-            Detail = new NavigationPage(new ItemsPage());
+            Detail = navPage;// new NavigationPage(new DashboardPage());
             ShowLoginDialog();
         }
 
