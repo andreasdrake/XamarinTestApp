@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customControls="clr-namespace:XamarinTestApp.Controls"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+                                    xmlns:essentials="clr-namespace:Xamarin.Forms.Essentials.Controls.Controls;assembly=Xamarin.Forms.Essentials.Controls"
              x:Class="XamarinTestApp.Views.DashboardPage"
              StartColor="{StaticResource DefaultGradientStartBackgroundColor}"
              EndColor="{StaticResource DefaultGradientStopBackgroundColor}">
@@ -13,11 +14,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <controls:CircleImage Source="jag2.png" BorderColor="White" BorderThickness="2" Aspect="AspectFill" WidthRequest="75" HeightRequest="75" Margin="0,100,0,0" HorizontalOptions="Center"/>
 
-
+            <essentials:Circle WidthRequest="40" HeightRequest="40" BackgroundColor="Pink"/>
             <Label Text="Andreas Drake" Grid.Row="1" Style="{StaticResource UserNameLabelStyle}" Margin="0,20,0,0" HorizontalOptions="Center"/>
             <Label Text="May 2017" Grid.Row="2" Style="{StaticResource LoginPageLabelUnderTitleStyle}" FontFamily="Montserrat-Bold"
                TextColor="{StaticResource PrimaryColor2}" Margin="0,20,0,0" HorizontalOptions="Center"/>
@@ -59,9 +61,9 @@
             </Grid>
 
 
-            <Button Margin="20,200,20,20" HorizontalOptions="FillAndExpand" Text="Quick report default day" 
+            <Button Margin="20,0,20,20" HorizontalOptions="FillAndExpand" Text="Quick report default day" 
                     Style="{StaticResource NormalButtonStyle}"
-                    Grid.Row="4" Command="{Binding Path=QuickReportCommand}"/>
+                    Grid.Row="5" Command="{Binding Path=QuickReportCommand}"/>
 
 
         </Grid>
