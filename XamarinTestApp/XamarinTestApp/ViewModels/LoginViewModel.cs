@@ -1,4 +1,4 @@
-﻿using Acr.UserDialogs;
+﻿//using Acr.UserDialogs;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -13,7 +13,7 @@ namespace XamarinTestApp.ViewModels
     public class LoginViewModel: ExtendedViewModelBase
     {
         private readonly Action<string> _onUserLoggedInSuccessful;
-        public LoginViewModel(IUserDialogs dialogs, Action<string> onUserLoggedInSuccessful):base(dialogs)
+        public LoginViewModel(/*IUserDialogs dialogs, */Action<string> onUserLoggedInSuccessful):base()//:base(dialogs)
         {
             _onUserLoggedInSuccessful = onUserLoggedInSuccessful ?? throw new ArgumentNullException(nameof(onUserLoggedInSuccessful));
         }

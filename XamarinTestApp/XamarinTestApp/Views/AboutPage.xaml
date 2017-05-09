@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTestApp.Views.AboutPage"
-             xmlns:vm="clr-namespace:XamarinTestApp.ViewModels;"
-             Title="{Binding Title}" Icon="">
-    <ContentPage.BindingContext>
+             xmlns:vm="clr-namespace:XamarinTestApp.ViewModels;"     
+             Title="Test" Icon="">
+    <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <Grid>
-        <Grid.RowDefinitions>
+        
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -23,15 +24,7 @@
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
 
                 <Label FontSize="18" FontFamily="Montserrat-Light" Text="USERNAME">
-                    <!--<Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="XamarinTestApp" FontAttributes="Bold" FontSize="22"/>
-                                <Span Text=" "/>
-                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>-->
+                   
                 </Label>
                 <Label>
                     <Label.FormattedText>
@@ -64,6 +57,6 @@
                 BackgroundColor="{StaticResource Primary}"
                 TextColor="White"/>
             </StackLayout>
-        </ScrollView>
+        </ScrollView>-->
     </Grid>
 </ContentPage>

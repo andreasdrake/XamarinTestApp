@@ -3,7 +3,9 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinTestApp.ViewModels;
-using Acr.UserDialogs;
+using System;
+using System.Diagnostics;
+//using Acr.UserDialogs;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XamarinTestApp
@@ -15,7 +17,14 @@ namespace XamarinTestApp
             InitializeComponent();
 
             //SetMainPage2();
-            SetRootPage();
+            try
+            {
+                SetRootPage();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         public static void SetRootPage()
@@ -29,7 +38,7 @@ namespace XamarinTestApp
         public static void SetMainPage()
         {
             
-            var loginVm = new LoginViewModel(UserDialogs.Instance, user => { });
+            var loginVm = new LoginViewModel(user => { });//UserDialogs.Instance, 
             var loginPage = new LoginPage { BindingContext = loginVm };
             
             //var nav = new NavigationPage(loginPage);

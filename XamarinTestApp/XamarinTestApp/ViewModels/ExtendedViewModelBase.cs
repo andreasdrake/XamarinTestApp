@@ -1,4 +1,4 @@
-﻿using Acr.UserDialogs;
+﻿//using Acr.UserDialogs;
 using GalaSoft.MvvmLight;
 using System;
 
@@ -6,12 +6,12 @@ namespace XamarinTestApp.ViewModels
 {
     public class ExtendedViewModelBase : ViewModelBase
     {
-        public ExtendedViewModelBase(IUserDialogs dialogsService)
+        public ExtendedViewModelBase()// IUserDialogs dialogsService)
         {
-            DialogsService = dialogsService ?? throw new ArgumentNullException(nameof(dialogsService));
+            //DialogsService = dialogsService ?? throw new ArgumentNullException(nameof(dialogsService));
         }
 
-        public IUserDialogs DialogsService { get; set; }
+        //public IUserDialogs DialogsService { get; set; }
 
         private string _title = string.Empty;
         private string _busyText = string.Empty;

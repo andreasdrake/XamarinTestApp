@@ -20,7 +20,9 @@ namespace XamarinTestApp.Controls
         #endregion
         #region Properties
 
-        public static BindableProperty BorderColorProperty = BindableProperty.Create<CustomEntry, Color>(o => o.BorderColor, Color.Transparent);
+        public static BindableProperty BorderColorProperty = 
+            //BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(CustomEntry), Color.Transparent);
+            BindableProperty.Create<CustomEntry, Color>(o => o.BorderColor, Color.Transparent);
 
         public Color BorderColor
         {
@@ -29,7 +31,9 @@ namespace XamarinTestApp.Controls
         }
 
 
-        public static BindableProperty BorderWidthProperty = BindableProperty.Create<CustomEntry, float>(o => o.BorderWidth, 0);
+        public static BindableProperty BorderWidthProperty = 
+            //BindableProperty.Create(nameof(BorderWidth), typeof(float), typeof(CustomEntry), 0);
+            BindableProperty.Create<CustomEntry, float>(o => o.BorderWidth, 0);
 
         public float BorderWidth
         {
@@ -37,7 +41,9 @@ namespace XamarinTestApp.Controls
             set { SetValue(BorderWidthProperty, value); }
         }
 
-        public static BindableProperty BorderRadiusProperty = BindableProperty.Create<CustomEntry, float>(o => o.BorderRadius, 0);
+        public static BindableProperty BorderRadiusProperty = 
+            //BindableProperty.Create(nameof(BorderRadius), typeof(float), typeof(CustomEntry), 0);
+        BindableProperty.Create<CustomEntry, float>(o => o.BorderRadius, 0);
 
         public float BorderRadius
         {
@@ -45,7 +51,9 @@ namespace XamarinTestApp.Controls
             set { SetValue(BorderRadiusProperty, value); }
         }
 
-        public static BindableProperty LeftPaddingProperty = BindableProperty.Create<CustomEntry, int>(o => o.LeftPadding, 5);
+        public static BindableProperty LeftPaddingProperty = 
+        //    BindableProperty.Create(nameof(LeftPadding), typeof(int), typeof(CustomEntry), 5);
+        BindableProperty.Create<CustomEntry, int>(o => o.LeftPadding, 5);
 
         public int LeftPadding
         {
@@ -53,7 +61,9 @@ namespace XamarinTestApp.Controls
             set { SetValue(LeftPaddingProperty, value); }
         }
 
-        public static BindableProperty RightPaddingProperty = BindableProperty.Create<CustomEntry, int>(o => o.RightPadding, 5);
+        public static BindableProperty RightPaddingProperty = 
+        //    BindableProperty.Create(nameof(RightPadding), typeof(int), typeof(CustomEntry), 5);
+        BindableProperty.Create<CustomEntry, int>(o => o.RightPadding, 5);
 
         public int RightPadding
         {

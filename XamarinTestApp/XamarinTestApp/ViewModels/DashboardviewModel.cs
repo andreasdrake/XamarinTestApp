@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Acr.UserDialogs;
+//using Acr.UserDialogs;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 
@@ -12,7 +12,7 @@ namespace XamarinTestApp.ViewModels
     public class DashboardviewModel : ExtendedViewModelBase
     {
         private bool _quickSaveOk;
-        public DashboardviewModel(IUserDialogs dialogsService) : base(dialogsService)
+        public DashboardviewModel():base()//IUserDialogs dialogsService) : base(dialogsService)
         {
         }
 
@@ -34,6 +34,11 @@ namespace XamarinTestApp.ViewModels
         {
             get { return !QuickSaveOk; }
            
+        }
+
+        public string Source
+        {
+            get { return "speaker.svg"; }
         }
         private async Task QuickReportAsync()
         {
