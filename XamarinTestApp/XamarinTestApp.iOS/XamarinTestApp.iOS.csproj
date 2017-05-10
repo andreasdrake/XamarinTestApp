@@ -40,6 +40,8 @@
     <MtouchNoSymbolStrip>False</MtouchNoSymbolStrip>
     <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
     <IOSDebuggerPort>10000</IOSDebuggerPort>
+    <BuildIpa>True</BuildIpa><!-- Added by Andreas 2017-05-10 -->
+    <IpaIncludeArtwork>True</IpaIncludeArtwork><!-- Added by Andreas 2017-05-10 -->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
