@@ -18,21 +18,44 @@
             <Style  x:Key="LoginPageLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White"/>
             </Style>
-          
+
+            <!--<OnPlatform x:TypeArguments="FontFamily" Android="Montserrat-Bold.otf#Montserrat-Bold" iOS="Montserrat-Bold" x:Key="BoldFontFamily" />-->
+
             <Style x:Key="LoginPageLabelTitleStyle" TargetType="Label"
                    BasedOn="{StaticResource LoginPageLabelStyle}">
-                <Setter Property="FontFamily" Value="Montserrat-Bold" />
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>Montserrat-Bold</OnPlatform.iOS>
+                            <OnPlatform.Android>Montserrat-Bold.otf#Montserrat-Bold</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="FontSize" Value="30"/>
             </Style>
             <Style x:Key="UserNameLabelStyle" TargetType="Label"
                    BasedOn="{StaticResource LoginPageLabelStyle}">
-                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>Montserrat-Regular</OnPlatform.iOS>
+                            <OnPlatform.Android>Montserrat-Regular.otf#Montserrat-Regular</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="FontSize" Value="Large"/>
             </Style>
             <Style x:Key="LoginPageLabelUnderTitleStyle" TargetType="Label"
                    BasedOn="{StaticResource LoginPageLabelStyle}">
                 <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="FontFamily" Value="Montserrat-Light" />
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>Montserrat-Light</OnPlatform.iOS>
+                            <OnPlatform.Android>Montserrat-Light.otf#Montserrat-Light</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="FontSize" Value="12"/>
             </Style>
 
@@ -44,7 +67,7 @@
             <Style x:Key="LoginPageCustomEntryStyle" TargetType="custom:CustomEntry">
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor2}"/>
-                <Setter Property="Opacity" Value="0.8"/>
+                <!--<Setter Property="Opacity" Value="0.8"/>-->
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="LeftPadding" Value="10"/>
                 <Setter Property="RightPadding" Value="10"/>
@@ -60,7 +83,14 @@
                 <Setter Property="FontSize" Value="18"/>
             </Style>-->
             <Style x:Key="LoginButtonStyle" TargetType="Button">
-                <Setter Property="FontFamily" Value="Montserrat-Bold" />
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>Montserrat-Bold</OnPlatform.iOS>
+                            <OnPlatform.Android>Montserrat-Light.otf#Montserrat-Bold</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="BorderRadius" Value="20"/>
                 <Setter Property="HeightRequest" Value="40"/>
