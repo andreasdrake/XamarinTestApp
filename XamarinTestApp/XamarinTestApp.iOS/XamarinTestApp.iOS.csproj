@@ -168,9 +168,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CurvedCornersLabelRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomNavigationPageRenderer.cs" />
+    <Compile Include="Renderers\EntryWithCurvedCornersRenderer.cs" />
     <Compile Include="Renderers\GradientContentPageRenderer.cs" />
+    <Compile Include="Renderers\RoundedCornersButtonRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\profile_generic.png" />

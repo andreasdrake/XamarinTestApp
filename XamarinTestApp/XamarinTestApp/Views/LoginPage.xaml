@@ -4,7 +4,7 @@
              xmlns:custom="clr-namespace:XamarinTestApp.Controls"
              x:Class="XamarinTestApp.Views.LoginPage"
              BackgroundImage="loginPage-background.png">
-    <Grid>
+    <Grid BackgroundColor="DarkBlue">
         <ScrollView>
             <Grid Margin="40,40,40,30">
                 <Grid.RowDefinitions>
@@ -20,6 +20,13 @@
 
                 </Grid.RowDefinitions>
                 <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />
+                <!--<custom:CurvedCornersLabel TextColor="White" Text="Test av label"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           HeightRequest="30"
+                                           Grid.Row="0" 
+                                           CurvedBackgroundColor="{StaticResource PrimaryColor2}" 
+                                           CurvedCornerRadius="15"/>-->
                 <Label Text="Consult" Grid.Row="1" Style="{StaticResource LoginPageLabelTitleStyle}" Margin="0,30,0,0" HorizontalOptions="Center"/>
 
                 <Label Grid.Row="2" Text="Timereporter Application" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
@@ -49,10 +56,16 @@
                         <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
                     </StackLayout>
                 </Grid>
-                <custom:CustomEntry Text="{Binding Path=Password, Mode=TwoWay}" Grid.Row="7" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8" IsPassword="True" />
-                <Button Margin="0,20,0,20" WidthRequest="150" Text="Sign in" 
+                <!--<custom:CustomEntry Text="{Binding Path=Password, Mode=TwoWay}" Grid.Row="7" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8" IsPassword="True" />-->
+
+                <custom:EntryWithCurvedCorners Grid.Row="7" BorderColor="{StaticResource PrimaryColor2}" CornerRadius="20" IsCurvedCornersEnabled="True" HorizontalOptions="FillAndExpand" HeightRequest="40"/>
+
+
+                <!--<Button Margin="0,20,0,20" WidthRequest="150" Text="Sign in" 
                     Style="{StaticResource LoginButtonStyle}"
-                    Grid.Row="8" Command="{Binding Path=LoginCommand}"/>
+                    Grid.Row="8" Command="{Binding Path=LoginCommand}"/>-->
+
+                <custom:RoundCornersButton Text="Sign in" BorderWidth="2" BorderColor="{StaticResource PrimaryColor2}" BackgroundColor="{StaticResource PrimaryColor2}" TextColor="White" Grid.Row="8" HorizontalOptions="FillAndExpand"/>
 
             </Grid>
 

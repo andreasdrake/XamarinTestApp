@@ -39,7 +39,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EntryWithCurvedCorners.cs" />
+    <Compile Include="Controls\RoundCornersButton.cs" />
     <Compile Include="Controls\CustomEntry.cs" />
+    <Compile Include="Controls\CurvedCornersLabel.cs" />
     <Compile Include="Controls\CustomNavigationPage.cs" />
     <Compile Include="Controls\CustomButton.cs" />
     <Compile Include="Controls\GradientContentPage.cs" />
