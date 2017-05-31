@@ -103,7 +103,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Source="green-checkmark.png" Grid.Row="0" HorizontalOptions="Center"/>
+                <Image Source="greencheckmark.png" Grid.Row="0" HorizontalOptions="Center"/>
                 <Label Text="{Binding Path=BusyText}" Style="{StaticResource LoginPageLabelUnderTitleStyle}" Grid.Row="1" HorizontalOptions="Center"/>
             </Grid>
         </Grid>

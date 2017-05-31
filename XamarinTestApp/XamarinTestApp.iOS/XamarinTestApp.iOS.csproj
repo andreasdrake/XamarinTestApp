@@ -198,13 +198,13 @@
     <BundleResource Include="Resources\logo%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\loginPage-background.png" />
+    <BundleResource Include="Resources\loginpagebackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\loginPage-background%402x.png" />
+    <BundleResource Include="Resources\loginpagebackground%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\loginPage-background%403x.png" />
+    <BundleResource Include="Resources\loginpagebackground%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\padlock.png" />
@@ -219,22 +219,22 @@
     <BundleResource Include="Resources\padlock%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\padlock_small.png" />
+    <BundleResource Include="Resources\padlocksmall.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\padlock_small%403x.png" />
+    <BundleResource Include="Resources\padlocksmall%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\padlock_small%402x.png" />
+    <BundleResource Include="Resources\padlocksmall%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user_small.png" />
+    <BundleResource Include="Resources\usersmall.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user_small%403x.png" />
+    <BundleResource Include="Resources\usersmall%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user_small%402x.png" />
+    <BundleResource Include="Resources\usersmall%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\spinner.gif" />
@@ -291,13 +291,13 @@
     <BundleResource Include="Resources\jag2%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\green-checkmark.png" />
+    <BundleResource Include="Resources\greencheckmark.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\green-checkmark%403x.png" />
+    <BundleResource Include="Resources\greencheckmark%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\green-checkmark%402x.png" />
+    <BundleResource Include="Resources\greencheckmark%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\spinner.svg" />

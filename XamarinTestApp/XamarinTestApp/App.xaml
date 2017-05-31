@@ -19,7 +19,9 @@
                 <Setter Property="TextColor" Value="White"/>
             </Style>
 
-            <!--<OnPlatform x:TypeArguments="FontFamily" Android="Montserrat-Bold.otf#Montserrat-Bold" iOS="Montserrat-Bold" x:Key="BoldFontFamily" />-->
+            <OnPlatform x:TypeArguments="x:String" 
+                Android="Montserrat-Bold.otf#Montserrat-Bold"
+                iOS="Montserrat-Bold" x:Key="BoldFontFamily" />
 
             <Style x:Key="LoginPageLabelTitleStyle" TargetType="Label"
                    BasedOn="{StaticResource LoginPageLabelStyle}">
@@ -67,7 +69,7 @@
             <Style x:Key="LoginPageCustomEntryStyle" TargetType="custom:CustomEntry">
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor2}"/>
-                <!--<Setter Property="Opacity" Value="0.8"/>-->
+                <Setter Property="Opacity" Value="0.8"/>
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="LeftPadding" Value="10"/>
                 <Setter Property="RightPadding" Value="10"/>
@@ -75,21 +77,23 @@
                 <Setter Property="BorderRadius" Value="20"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/> 
             </Style>
-            
-            <!--<Style x:Key="LoginPageLabelUnderlinedStyle" TargetType="Label"
-                   BasedOn="{StaticResource LoginPageLabelStyle}">
-
-                <Setter Property="FontFamily" Value="Montserrat-Light" />
-                <Setter Property="FontSize" Value="18"/>
-            </Style>-->
+            <Style x:Key="LoginPageEntryWithCurvedCornersStyle" TargetType="custom:EntryWithCurvedCorners">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderColor" Value="{StaticResource PrimaryColor2}"/>
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="HeightRequest" Value="40"/>              
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+         
             <Style x:Key="LoginButtonStyle" TargetType="Button">
-                <Setter Property="FontFamily">
-                    <Setter.Value>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFontFamily}">
+                    <!--<Setter.Value>
                         <OnPlatform x:TypeArguments="x:String">
                             <OnPlatform.iOS>Montserrat-Bold</OnPlatform.iOS>
-                            <OnPlatform.Android>Montserrat-Light.otf#Montserrat-Bold</OnPlatform.Android>
+                            <OnPlatform.Android>Montserrat-Bold.otf#Montserrat-Bold</OnPlatform.Android>
                         </OnPlatform>
-                    </Setter.Value>
+                    </Setter.Value>-->
                 </Setter>
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="BorderRadius" Value="20"/>
@@ -98,6 +102,25 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="TextColor" Value="{StaticResource PrimaryColor2}"/>
             </Style>
+
+
+            <Style x:Key="RoundCornersButtonStyle" TargetType="custom:RoundCornersButton">
+                <Setter Property="FontFamily" >
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>Montserrat-Bold</OnPlatform.iOS>
+                            <OnPlatform.Android>Montserrat-Bold.otf#Montserrat-Bold</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions"  Value="Center"/>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor2}"/>
+            </Style>
+
+
             <Style x:Key="NormalButtonStyle" TargetType="Button" BasedOn="{StaticResource LoginButtonStyle}">
                 <Setter Property="TextColor" Value="White"/>
                 

@@ -6,7 +6,7 @@ using XamarinTestApp.Droid.Renderers;
 namespace XamarinTestApp.Droid.Renderers
 {
     using Android.Graphics.Drawables;
-
+    using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Platform.Android;
 
@@ -18,23 +18,30 @@ namespace XamarinTestApp.Droid.Renderers
 
             if (e.NewElement != null)
             {
-                // Subscribe for events
+                e.NewElement.SizeChanged += NewElement_SizeChanged;
             }
             else if (e.OldElement != null)
             {
-                // Unsubscribe from events
+                e.OldElement.SizeChanged -= NewElement_SizeChanged;
             }
+        }
 
+        private void NewElement_SizeChanged(object sender, EventArgs e)
+        {
             if (Control != null)
             {
+                var view = (RoundCornersButton)Element;
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.SetShape(ShapeType.Rectangle);
-                gradientDrawable.SetColor(Element.BackgroundColor.ToAndroid());
-                gradientDrawable.SetStroke(4, Element.BorderColor.ToAndroid());
-                gradientDrawable.SetCornerRadius(38.0f);
+                gradientDrawable.SetColor(view.BackgroundColor.ToAndroid());
+                gradientDrawable.SetStroke(0, view.BorderColor.ToAndroid());
+                gradientDrawable.SetCornerRadius(
+                     AndroidHelpers.DpToPixels(this.Context,
+                         Convert.ToSingle(view.Height/2)));
 
                 Control.SetBackground(gradientDrawable);
             }
         }
     }
+     
 }

@@ -56,22 +56,7 @@ namespace XamarinTestApp.Controls
             set { SetValue(CornerRadiusProperty, value); }
         }
 
-
-        public static readonly BindableProperty IsCurvedCornersEnabledProperty =
-        BindableProperty.Create(
-            nameof(IsCurvedCornersEnabled),
-            typeof(bool),
-            typeof(EntryWithCurvedCorners),
-            true);
-
-        /// <summary>
-        /// Gets or sets IsCurvedCornersEnabled value
-        /// </summary>
-        public bool IsCurvedCornersEnabled
-        {
-            get { return (bool)GetValue(IsCurvedCornersEnabledProperty); }
-            set { SetValue(IsCurvedCornersEnabledProperty, value); }
-        }
+  
 
     }
 }
