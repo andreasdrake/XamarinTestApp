@@ -10,12 +10,90 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+
+using Android.Graphics.Drawables;
+using Android.Graphics;
+using XamarinTestApp.Droid.Renderers;
+using Xamarin.Forms;
+using XamarinTestApp.Controls;
+using Xamarin.Forms.Platform.Android;
+
+[assembly: ExportRenderer(typeof(CustomNotifcationDialog), typeof(CustomNotificationDialogRenderer))]
 namespace XamarinTestApp.Droid.Renderers
 {
-    class CustomNotificationDialogRenderer
+    public class CustomNotificationDialogRenderer : ViewRenderer<CustomNotifcationDialog, Android.Views.View>
     {
+        public CustomNotificationDialogRenderer()
+        {
+            this.SetWillNotDraw(false);
+        }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<CustomNotifcationDialog> e)
+        {
+            base.OnElementChanged(e);
+            if (Control == null)
+            {
+                var circleDotView = new Android.Views.View(Forms.Context);
+                SetNativeControl(circleDotView);
+            }
+        }
+
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            //if (e.PropertyName == CustomNotifcationDialog.ActiveProperty.PropertyName)
+            //{
+                Invalidate();
+            //}
+        }
+
+        public enum ResizingBehavior
+        {
+            AspectFit,
+            AspectFill,
+            Stretch,
+            Center,
+        }
+
+        private static class CacheForCanvas1
+        {
+            private static Paint paint = new Paint();
+            private static RectF bezier2Rect = new RectF();
+            private static Path bezier2Path = new Path();
+        }
     }
 }
+
+/*
+[assembly: ExportRenderer(typeof(CircleDot), typeof(CircleDotRenderer))]
+namespace DevProtocol.Xam.CircleDotDemo.Droid.Renderers
+{
+	public class CircleDotRenderer: ViewRenderer<CircleDot, Android.Views.View>
+	{
+		public CircleDotRenderer()
+		{
+			this.SetWillNotDraw(false);
+		}
+
+		protected override void OnElementChanged(ElementChangedEventArgs<CircleDot> e)
+		{
+			base.OnElementChanged(e);
+			if (Control == null)
+			{
+				var circleDotView = new Android.Views.View(Forms.Context);
+				SetNativeControl(circleDotView);
+			}
+		}
+
+		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			base.OnElementPropertyChanged(sender, e);
+			if (e.PropertyName == CircleDot.ActiveProperty.PropertyName)
+			{
+				Invalidate();
+			}
+		}*/
+
 //Code generated from PaintCodeApp
 /*
  package com.example.project;
