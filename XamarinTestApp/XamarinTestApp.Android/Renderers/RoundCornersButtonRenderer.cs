@@ -18,15 +18,15 @@ namespace XamarinTestApp.Droid.Renderers
 
             if (e.NewElement != null)
             {
-                e.NewElement.SizeChanged += NewElement_SizeChanged;
+                e.NewElement.SizeChanged += NewElementSizeChanged;
             }
             else if (e.OldElement != null)
             {
-                e.OldElement.SizeChanged -= NewElement_SizeChanged;
+                e.OldElement.SizeChanged -= NewElementSizeChanged;
             }
         }
 
-        private void NewElement_SizeChanged(object sender, EventArgs e)
+        private void NewElementSizeChanged(object sender, EventArgs e)
         {
             if (Control != null)
             {

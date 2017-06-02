@@ -41,6 +41,8 @@
 	<string>LaunchScreen</string>
 	<key>UIAppFonts</key>
 	<array>
+    <string>iconize-fontawesome.ttf</string>
+    <string>iconize-ionicons.ttf</string>
 		<string>Fonts/Montserrat-Light.otf</string>
 		<string>Fonts/Montserrat-Bold.otf</string>
     <string>Fonts/Montserrat-Regular.otf</string>

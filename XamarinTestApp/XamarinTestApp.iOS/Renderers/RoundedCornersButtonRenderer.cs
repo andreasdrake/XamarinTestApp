@@ -14,16 +14,23 @@ namespace XamarinTestApp.iOS.Renderers
 
             if (e.NewElement != null)
             {
-                // Subscribe for events
+                e.NewElement.SizeChanged += NewElementSizeChanged;
             }
             else if (e.OldElement != null)
             {
-                // Unsubscribe from events
+                e.OldElement.SizeChanged -= NewElementSizeChanged;
             }
 
+      
+        }
+
+        private void NewElementSizeChanged(object sender, System.EventArgs e)
+        {
             if (Control != null)
             {
-                Control.Layer.CornerRadius = 15;
+                var view = (RoundCornersButton)Element;
+
+                Control.Layer.CornerRadius =(float)view.Height/2;
                 Control.ClipsToBounds = true;
             }
         }

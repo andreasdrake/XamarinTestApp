@@ -1,9 +1,5 @@
-﻿
-//using FFImageLoading;
-//using FFImageLoading.Forms.Touch;
-using Foundation;
+﻿using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
-using System;
 using UIKit;
 
 namespace XamarinTestApp.iOS
@@ -13,51 +9,22 @@ namespace XamarinTestApp.iOS
 	{
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.Init();
+            //Icon definitions:
+            //Font Awesome: http://fontawesome.io/cheatsheet/
+            //Ionic: http://ionicons.com/
+
+            Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule())
+                .With(new Plugin.Iconize.Fonts.IoniconsModule());
+
+            global::Xamarin.Forms.Forms.Init();
             ImageCircleRenderer.Init();
-
-
-            //CachedImageRenderer.Init();
-
-            //var config = new FFImageLoading.Config.Configuration
-            //{
-            //    VerboseLogging = false,
-            //    VerbosePerformanceLogging = false,
-            //    VerboseMemoryCacheLogging = false,
-            //    VerboseLoadingCancelledLogging = false,
-            //    Logger = new CustomLogger(),
-            //};
-
-            //ImageService.Instance.Initialize(config);
+            FormsPlugin.Iconize.iOS.IconControls.Init();
+                      
 
             LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
 		}
-
-        //public class CustomLogger : FFImageLoading.Helpers.IMiniLogger
-
-        //{
-
-        //    public void Debug(string message)
-
-        //    {
-        //        Console.WriteLine(message);
-        //    }
-
-        //    public void Error(string errorMessage)
-
-        //    {
-        //        Console.WriteLine(errorMessage);
-        //    }
-
-
-        //    public void Error(string errorMessage, Exception ex)
-
-        //    {
-        //        Error(errorMessage + System.Environment.NewLine + ex.ToString());
-        //    }
-
-        //}
+        
     }
 }

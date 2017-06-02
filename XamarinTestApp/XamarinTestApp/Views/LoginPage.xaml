@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:custom="clr-namespace:XamarinTestApp.Controls"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
              x:Class="XamarinTestApp.Views.LoginPage"
              BackgroundImage="loginpagebackground.png">
     <Grid>
@@ -16,17 +17,14 @@
                     <RowDefinition Height="Auto"/><!-- 5: Username - Entry -->
                     <RowDefinition Height="Auto"/><!-- 6: PASSWORD -->
                     <RowDefinition Height="Auto"/><!-- 7: Password - Entry -->
-                    <RowDefinition Height="Auto"/><!-- 8: Login Button -->
+                    <RowDefinition Height="Auto"/><!-- 8: Remember Me -->
+                    <RowDefinition Height="Auto"/><!-- 9: Login Button -->
 
                 </Grid.RowDefinitions>
+                
+        
+                
                 <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />
-                <!--<custom:CurvedCornersLabel TextColor="White" Text="Test av label"
-                                           HorizontalTextAlignment="Center"
-                                           VerticalTextAlignment="Center"
-                                           HeightRequest="30"
-                                           Grid.Row="0" 
-                                           CurvedBackgroundColor="{StaticResource PrimaryColor2}" 
-                                           CurvedCornerRadius="15"/>-->
                 <Label Text="Consult" Grid.Row="1" Style="{StaticResource LoginPageLabelTitleStyle}" Margin="0,30,0,0" HorizontalOptions="Center"/>
 
                 <Label Grid.Row="2" Text="Timereporter Application" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
@@ -37,13 +35,12 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Source="usersmall.png" Grid.Column="0" VerticalOptions="Center"/>
+                    <iconize:IconImage HeightRequest="20" Icon="fa-user" IconColor="White" WidthRequest="20" Grid.Column="0" VerticalOptions="Center"/>
                     <StackLayout Grid.Column="1" Padding="0" HorizontalOptions="Start" Margin="7,0,0,0" VerticalOptions="Center">
                         <Label Text="USERNAME" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
                         <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
                     </StackLayout>
                 </Grid>
-                <!--<custom:CustomEntry Text="{Binding Path=UserName, Mode=TwoWay}" Grid.Row="5" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8"/>-->
                 <custom:EntryWithCurvedCorners Grid.Row="5" Text="{Binding Path=UserName, Mode=TwoWay}"  Style="{StaticResource LoginPageEntryWithCurvedCornersStyle}" />
 
                 <Grid Grid.Row="6" HorizontalOptions="Start" Margin="20,10,0,0">
@@ -52,22 +49,40 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Source="padlocksmall.png" Grid.Column="0" VerticalOptions="Center" />
+
+                    <iconize:IconImage HeightRequest="20" Icon="fa-lock" IconColor="White" WidthRequest="20" Grid.Column="0" VerticalOptions="Center"/>
                     <StackLayout Grid.Column="1" Padding="0" HorizontalOptions="Start" Margin="7,0,0,0" VerticalOptions="Center">
                         <Label Text="PASSWORD" Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
                         <BoxView BackgroundColor="White" HeightRequest="1" Margin="0,-4,0,0"/>
                     </StackLayout>
                 </Grid>
-                <!--<custom:CustomEntry Text="{Binding Path=Password, Mode=TwoWay}" Grid.Row="7" Style="{StaticResource LoginPageCustomEntryStyle}" Margin="-10,0,-10,0" Opacity="0.8" IsPassword="True" />-->
-
-                <custom:EntryWithCurvedCorners Grid.Row="7" Text="{Binding Path=Password, Mode=TwoWay}"  Style="{StaticResource LoginPageEntryWithCurvedCornersStyle}" />
-
-
-                <!--<Button Margin="0,20,0,20" WidthRequest="150" Text="Sign in" 
-                    Style="{StaticResource LoginButtonStyle}"
-                    Grid.Row="8" Command="{Binding Path=LoginCommand}"/>-->
-
-                <custom:RoundCornersButton Grid.Row="8" Margin="0,20,0,20" Text="Sign in"
+                
+                <custom:EntryWithCurvedCorners IsPassword="True" Grid.Row="7" Text="{Binding Path=Password, Mode=TwoWay}"  Style="{StaticResource LoginPageEntryWithCurvedCornersStyle}" />
+                
+                <Grid HorizontalOptions="Start" Grid.Row="8" Margin="20,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <custom:IconToggleButton2 ToggledOnIconKey="fa-check-circle-o" ToggledOffIconKey="fa-circle-o"
+                                             WidthRequest="20" HeightRequest="20" Opacity="0.8"
+                                         IconColor="{StaticResource PrimaryColor2}" Grid.Column="0" VerticalOptions="Center"/>
+                    <!--<custom:IconToggleButton2 ToggledOnIconKey="fa-check-square" ToggledOffIconKey="fa-square"
+                                             WidthRequest="30" HeightRequest="30"
+                                         IconColor="{StaticResource PrimaryColor2}" Grid.Column="0" VerticalOptions="Center"/>-->
+                    <!--<custom:IconToggleButton2 ToggledOnIconKey="fa-check-square-o" ToggledOffIconKey="fa-square-o"
+                                             WidthRequest="30" HeightRequest="30"
+                                         IconColor="{StaticResource PrimaryColor2}" Grid.Column="0" VerticalOptions="Center"/>-->
+                    
+                    <!--<custom:IconToggleButton ToggledOnIconKey="fa-check-square-o" ToggledOffIconKey="fa-square-o"
+                                             FontSize="Large" 
+                                         TextColor="{StaticResource PrimaryColor2}" Grid.Column="0" VerticalOptions="Center"/>-->
+                    
+                    <Label Text="Keep me signed in" Grid.Column="1" Margin="7,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                           Style="{StaticResource LoginPageLabelUnderTitleStyle}"/>
+                </Grid>
+                
+                <custom:RoundCornersButton Grid.Row="9" Margin="0,20,0,20" Text="Sign in"
                                            Style="{StaticResource RoundCornersButtonStyle}"    
                                            Command="{Binding Path=LoginCommand}"
                                            HorizontalOptions="FillAndExpand"/>
@@ -82,10 +97,11 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ActivityIndicator Color="{StaticResource PrimaryColor2}" IsRunning="{Binding Path=IsBusy}" Grid.Row="0"  />
+            
+            <custom:IconActivityIndicator IconKey="ion-load-c" IconColor="{StaticResource PrimaryColor2}" WidthRequest="30" HeightRequest="30" Grid.Row="0" />
             <Label Text="{Binding Path=BusyText}" Style="{StaticResource LoginPageLabelUnderTitleStyle}" Grid.Row="1"/>
         </Grid>
-        
 
+      
     </Grid>
 </ContentPage>

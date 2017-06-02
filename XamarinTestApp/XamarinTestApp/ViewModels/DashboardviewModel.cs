@@ -51,6 +51,8 @@ namespace XamarinTestApp.ViewModels
 
             BusyText = "Reporting...";
             IsBusy = true;
+            return;//TEMP
+
             await Task.Delay(4000);
             BusyText = "Thanks!";
             QuickSaveOk = true;

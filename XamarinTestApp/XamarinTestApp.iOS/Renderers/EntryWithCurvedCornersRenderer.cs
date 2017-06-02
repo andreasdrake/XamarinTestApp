@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Foundation;
 using UIKit;
 using Xamarin.Forms;
 using XamarinTestApp.Controls;
@@ -32,6 +27,7 @@ namespace XamarinTestApp.iOS.Renderers
 
                 Control.Layer.CornerRadius = Convert.ToSingle(view.CornerRadius);
                 Control.Layer.BorderColor = view.BorderColor.ToCGColor();
+                Control.BackgroundColor= view.BorderColor.ToUIColor();
                 Control.Layer.BorderWidth = view.BorderWidth;
                 Control.ClipsToBounds = true;
             }
