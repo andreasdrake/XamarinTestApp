@@ -12,11 +12,23 @@ namespace XamarinTestApp.Controls
 
     public class WrappedCustomNotificationDialog : Grid
     {
+        /*
+         
+              <custom:RoundCornersButton Grid.Row="9" Margin="0,20,0,20" Text="Sign in"
+                                           Style="{StaticResource RoundCornersButtonStyle}"    
+                                           Command="{Binding Path=LoginCommand}"
+                                           HorizontalOptions="FillAndExpand"/>
 
+             */
 
         public WrappedCustomNotificationDialog()
         {
-            this.Children.Add(new CustomNotifcationDialog {  FillColor = FillColor});
+            Children.Add(new CustomNotifcationDialog
+            {
+                GradientBackgroundStartColor = GradientBackgroundStartColor,
+                GradientBackgroundStopColor = GradientBackgroundStopColor,
+                StrokeColor = StrokeColor
+            });
         }
 
         public static readonly BindableProperty YesCommandProperty =
@@ -27,6 +39,14 @@ namespace XamarinTestApp.Controls
             get { return (ICommand)GetValue(YesCommandProperty); }
             set { SetValue(YesCommandProperty, value); }
         }
+        public static readonly BindableProperty NoCommandProperty =
+        BindableProperty.Create(nameof(NoCommand), typeof(ICommand), typeof(WrappedCustomNotificationDialog));
+
+        public ICommand NoCommand
+        {
+            get { return (ICommand)GetValue(NoCommandProperty); }
+            set { SetValue(NoCommandProperty, value); }
+        }
 
         private void AddContent()
         {
@@ -34,44 +54,53 @@ namespace XamarinTestApp.Controls
             {
                 //HorizontalOptions = LayoutOptions.CenterAndExpand,
                 //VerticalOptions = LayoutOptions.Start,
-                Margin = new Thickness(10, 20, 10, 30)
+                Margin = new Thickness(20, 20, 20, 30)
             };
 
             contentGrid.RowDefinitions = new RowDefinitionCollection
-            {
-             
-                new RowDefinition { Height = GridLength.Auto },
-                new RowDefinition { Height = GridLength.Auto },
-                new RowDefinition { Height = GridLength.Star }
+            {             
+                new RowDefinition { Height = GridLength.Star },
+                //new RowDefinition { Height = GridLength.Star },
+                new RowDefinition { Height = GridLength.Auto }
             };
+
             contentGrid.ColumnDefinitions = new ColumnDefinitionCollection
             {
                 new ColumnDefinition { Width = GridLength.Star },
+                new ColumnDefinition { Width = 10 },
                 new ColumnDefinition { Width = GridLength.Star }
             };
 
             var label = new Label {
-                Text = "Test av text",
+                Text = "Do you want do report 8 h for SCB? Bla bla a lot of extra test text here...",
                 TextColor = Color.White,
-                Margin = new Thickness(10,20,10,30),
-                HorizontalOptions = LayoutOptions.Center
+                Style = (Style)Application.Current.Resources["LoginPageLabelUnderTitleStyle"],
+                Margin = new Thickness(10),
+                HorizontalOptions = LayoutOptions.Center,
+                LineBreakMode = LineBreakMode.WordWrap
             };
 
-            var yesButton = new Button
+            var yesButton = new RoundCornersButton
             {
                 Text = "Yes",
-                HorizontalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.End,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Style = (Style)Application.Current.Resources["RoundCornersButtonStyle"],
+                Command = YesCommand
             };
-            var noButton = new Button
+            var noButton = new RoundCornersButton
             {
                 Text = "No",
-                HorizontalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.End,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Style = (Style)Application.Current.Resources["RoundCornersButtonStyle"],
+                Command = NoCommand
             };
             contentGrid.Children.Add(label, 0, 0);
-            Grid.SetColumnSpan(label, 2);
+            Grid.SetColumnSpan(label, 3);
 
             contentGrid.Children.Add(yesButton, 0, 1);
-            contentGrid.Children.Add(noButton, 1, 1);
+            contentGrid.Children.Add(noButton, 2, 1);
 
             //this.Children.Add(label);
             this.Children.Add(contentGrid);
@@ -100,14 +129,47 @@ namespace XamarinTestApp.Controls
         //}
 
 
-        public static readonly BindableProperty FillColorProperty =
-            BindableProperty.Create(nameof(FillColor), typeof(Color), typeof(WrappedCustomNotificationDialog), Color.FromHex("#0d1829"));
+        public static readonly BindableProperty StrokeColorProperty =
+                BindableProperty.Create(nameof(StrokeColor), typeof(Color), typeof(CustomNotifcationDialog), Color.White);
 
-        public Color FillColor
+        public Color StrokeColor
         {
-            get { return (Color)GetValue(FillColorProperty); }
-            set { SetValue(FillColorProperty, value); }
+            get { return (Color)GetValue(StrokeColorProperty); }
+            set { SetValue(StrokeColorProperty, value); }
         }
+
+
+        public static readonly BindableProperty GradientBackgroundStartColorProperty =
+              BindableProperty.Create(nameof(GradientBackgroundStartColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#0d1829"));
+
+        public Color GradientBackgroundStartColor
+        {
+            get { return (Color)GetValue(GradientBackgroundStartColorProperty); }
+            set { SetValue(GradientBackgroundStartColorProperty, value); }
+        }
+
+        public static readonly BindableProperty GradientBackgroundStopColorProperty =
+            BindableProperty.Create(nameof(GradientBackgroundStopColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#080a0c"));
+
+        public Color GradientBackgroundStopColor
+        {
+            get { return (Color)GetValue(GradientBackgroundStopColorProperty); }
+            set { SetValue(GradientBackgroundStopColorProperty, value); }
+        }
+        //protected override void OnPropertyChanging([CallerMemberName] string propertyName = null)
+        //{
+        //    base.OnPropertyChanging(propertyName);
+        //    if (propertyName != null)
+        //    {
+        //        if (propertyName == Grid.IsVisibleProperty.PropertyName)
+        //        {
+        //            if (!IsVisible)
+        //            {
+        //                Animate(false);
+        //            }
+        //        }
+        //    }
+        //}
 
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -116,12 +178,10 @@ namespace XamarinTestApp.Controls
             {
                 if (propertyName == Grid.IsVisibleProperty.PropertyName)
                 {
-                    
-                        Animate(IsVisible);
-                        //this.Scale = 0;
-                        //this.ScaleTo(1, 500, Easing.SinIn);
-                    
-                    
+                    if (IsVisible)
+                    {
+                        Animate(true);
+                    }
                 }
             }
         }
@@ -140,6 +200,9 @@ namespace XamarinTestApp.Controls
             }
             else
             {
+                await Task.WhenAll(
+                    this.ScaleTo(0, 300, Easing.SinIn),
+                    this.TranslateTo(-300, -300, 300, Easing.SinIn));
 
             }
 
@@ -167,8 +230,6 @@ namespace XamarinTestApp.Controls
                     if (IsVisible)
                     {
                         Animate();
-                        //this.Scale = 0;
-                        //this.ScaleTo(1, 500, Easing.SinIn);
                     }
                 }
             }
@@ -179,20 +240,38 @@ namespace XamarinTestApp.Controls
             this.Scale = 0;
             await this.TranslateTo(0, 100, 1);
             await Task.WhenAll(
-                
                 this.ScaleTo(1,300, Easing.SinIn),
-                this.TranslateTo(0, 0, 300, Easing.SinIn)
-);
+                this.TranslateTo(0, 0, 300, Easing.CubicInOut)
+            );
             
         }
 
-        public static readonly BindableProperty FillColorProperty =
-              BindableProperty.Create(nameof(FillColor), typeof(Color), typeof(CustomNotifcationDialog), Color.Blue);
+        public static readonly BindableProperty StrokeColorProperty =
+             BindableProperty.Create(nameof(StrokeColor), typeof(Color), typeof(CustomNotifcationDialog), Color.White);
 
-        public Color FillColor
+        public Color StrokeColor
         {
-            get { return (Color)GetValue(FillColorProperty); }
-            set { SetValue(FillColorProperty, value); }
+            get { return (Color)GetValue(StrokeColorProperty); }
+            set { SetValue(StrokeColorProperty, value); }
+        }
+
+
+        public static readonly BindableProperty GradientBackgroundStartColorProperty =
+              BindableProperty.Create(nameof(GradientBackgroundStartColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#0d1829"));
+
+        public Color GradientBackgroundStartColor
+        {
+            get { return (Color)GetValue(GradientBackgroundStartColorProperty); }
+            set { SetValue(GradientBackgroundStartColorProperty, value); }
+        }
+
+        public static readonly BindableProperty GradientBackgroundStopColorProperty =
+            BindableProperty.Create(nameof(GradientBackgroundStopColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#080a0c"));
+
+        public Color GradientBackgroundStopColor
+        {
+            get { return (Color)GetValue(GradientBackgroundStopColorProperty); }
+            set { SetValue(GradientBackgroundStopColorProperty, value); }
         }
     }
 }

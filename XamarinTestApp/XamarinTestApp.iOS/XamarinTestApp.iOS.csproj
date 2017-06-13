@@ -86,7 +86,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: andreas_drake@hotmail.com (GRTAWX92GK)</CodesignKey>
+    <CodesignKey>iPhone Developer: Andreas Drake (M3PM49YQY7)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>True</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -101,6 +101,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
     <IOSDebuggerPort>10000</IOSDebuggerPort>
+    <CodesignProvision>94cfaa0c-4318-4413-8938-44d89f6ecb87</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FormsPlugin.Iconize, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
@@ -180,6 +181,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\ConevoArrowActivityIndicatorRenderer.cs" />
     <Compile Include="Renderers\CurvedCornersLabelRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomNavigationPageRenderer.cs" />
@@ -187,6 +189,7 @@
     <Compile Include="Renderers\EntryWithCurvedCornersRenderer.cs" />
     <Compile Include="Renderers\GradientContentPageRenderer.cs" />
     <Compile Include="Renderers\RoundedCornersButtonRenderer.cs" />
+    <Compile Include="Renderers\StyleKit.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\profile_generic.png" />

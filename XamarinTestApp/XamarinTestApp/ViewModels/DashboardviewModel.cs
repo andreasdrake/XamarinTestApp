@@ -21,6 +21,16 @@ namespace XamarinTestApp.ViewModels
             get { return new RelayCommand(async () => await QuickReportAsync()); }
         }
 
+        public ICommand DialogYesCommand
+        {
+            get { return new RelayCommand(() => IsBusy = false); }
+        }
+
+        public ICommand DialogNoCommand
+        {
+            get { return new RelayCommand(() => IsBusy = false); }
+        }
+
         public bool QuickSaveOk
         {
             get { return _quickSaveOk; }

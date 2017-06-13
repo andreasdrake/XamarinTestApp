@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinTestApp", "XamarinTestApp\XamarinTestApp\XamarinTestApp.csproj", "{D1E97549-BB2F-416F-8587-A56C6B0BE888}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinTestApp.Android", "XamarinTestApp\XamarinTestApp.Android\XamarinTestApp.Android.csproj", "{8F60644E-92E7-45DF-9E08-A9688B32DC9C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinTestApp.iOS", "XamarinTestApp\XamarinTestApp.iOS\XamarinTestApp.iOS.csproj", "{B6C473AC-6F7F-49EF-832B-6257B694C6BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaintCode Files", "PaintCode Files", "{A616B8F3-BCC0-4BFC-A177-4A3DE4936CAC}"
+	ProjectSection(SolutionItems) = preProject
+		Z:\Downloads\Conevo Arrow Small.pcvd = Z:\Downloads\Conevo Arrow Small.pcvd
+		Z:\Downloads\Conevo Arrow.pcvd = Z:\Downloads\Conevo Arrow.pcvd
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

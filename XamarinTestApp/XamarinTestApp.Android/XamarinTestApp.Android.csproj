@@ -139,6 +139,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\AndroidHelpers.cs" />
+    <Compile Include="Renderers\ConevoArrowActivityIndicatorRenderer.cs" />
     <Compile Include="Renderers\CurvedCornersLabelRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomNotificationDialogRenderer.cs" />

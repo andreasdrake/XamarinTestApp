@@ -58,7 +58,7 @@ namespace XamarinTestApp.ViewModels
 
             BusyText = "Signing in...";
             IsBusy = true;
-            await Task.Delay(3500);
+            await Task.Delay(5500);
             IsBusy = false;
             BusyText = string.Empty;
             _onUserLoggedInSuccessful(UserName);

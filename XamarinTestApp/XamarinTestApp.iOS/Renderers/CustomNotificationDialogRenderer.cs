@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using XamarinTestApp.iOS.Renderers;
 using XamarinTestApp.Controls;
+using System;
 
 [assembly: ExportRenderer(typeof(CustomNotifcationDialog), typeof(CustomNotificationDialogRenderer))]
 namespace XamarinTestApp.iOS.Renderers
@@ -35,42 +36,37 @@ namespace XamarinTestApp.iOS.Renderers
         
         public override void Draw(CGRect rect)
         {
-            DrawCircleDot(rect, Element.FillColor.ToUIColor(), Color.White.ToUIColor());
+            Draw(rect, Element.GradientBackgroundStartColor.ToUIColor(), Element.GradientBackgroundStopColor.ToUIColor(), Element.StrokeColor.ToUIColor());
         }
 
-        private void DrawCircleDot(CGRect frame, UIColor colorFill, UIColor colorStroke)
+        private void Draw(CGRect frame, UIColor backgroundStartGradientColor, UIColor backgroundStopGradientColor, UIColor strokeColor)
         {
-            //var circleDotStrokePath = UIBezierPath.FromOval(new CGRect(frame.GetMinX() + 1.0f, frame.GetMinY() + 1.0f, frame.Width - 2.0f, frame.Height - 2.0f));
-            //colorStroke.SetStroke();
-            //circleDotStrokePath.LineWidth = 1.5f;
-            //circleDotStrokePath.Stroke();
+            StyleKitName.DrawCanvas(frame, backgroundStartGradientColor, backgroundStopGradientColor, strokeColor);
 
-            //return;
-
-
+            //OLD DOWN HERE
 
             // Color Declarations
-            var color2 = colorFill;// UIColor.FromRGBA(0.051f, 0.094f, 0.161f, 1.000f);
+            //var color2 = colorFill;
 
-            //// Bezier 2 Drawing
-            var bezier2Path = new UIBezierPath();
-            bezier2Path.MoveTo(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09893f * frame.Height));
-            bezier2Path.AddCurveToPoint(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height), new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09890f * frame.Height), new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height));
-            bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.25538f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height));
-            bezier2Path.AddCurveToPoint(new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.92308f * frame.Height), new CGPoint(frame.GetMinX() + 0.22263f * frame.Width, frame.GetMinY() + 0.81115f * frame.Height), new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.92308f * frame.Height));
-            bezier2Path.AddCurveToPoint(new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height), new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.92308f * frame.Height), new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.81115f * frame.Height));
-            bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.03684f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height));
-            bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.03684f * frame.Width, frame.GetMinY() + 0.09890f * frame.Height));
-            bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09890f * frame.Height));
-            bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09893f * frame.Height));
-            bezier2Path.ClosePath();
-            color2.SetFill();
-            bezier2Path.Fill();
-            UIColor.White.SetStroke();
-            bezier2Path.LineWidth = 2.0f;
-            bezier2Path.Stroke();
+            ////// Bezier 2 Drawing
+            //var bezier2Path = new UIBezierPath();
+            //bezier2Path.MoveTo(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09893f * frame.Height));
+            //bezier2Path.AddCurveToPoint(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height), new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09890f * frame.Height), new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height));
+            //bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.25538f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height));
+            //bezier2Path.AddCurveToPoint(new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.92308f * frame.Height), new CGPoint(frame.GetMinX() + 0.22263f * frame.Width, frame.GetMinY() + 0.81115f * frame.Height), new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.92308f * frame.Height));
+            //bezier2Path.AddCurveToPoint(new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height), new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.92308f * frame.Height), new CGPoint(frame.GetMinX() + 0.17368f * frame.Width, frame.GetMinY() + 0.81115f * frame.Height));
+            //bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.03684f * frame.Width, frame.GetMinY() + 0.73626f * frame.Height));
+            //bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.03684f * frame.Width, frame.GetMinY() + 0.09890f * frame.Height));
+            //bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09890f * frame.Height));
+            //bezier2Path.AddLineTo(new CGPoint(frame.GetMinX() + 0.95789f * frame.Width, frame.GetMinY() + 0.09893f * frame.Height));
+            //bezier2Path.ClosePath();
+            //color2.SetFill();
+            //bezier2Path.Fill();
+            //UIColor.White.SetStroke();
+            //bezier2Path.LineWidth = 2.0f;
+            //bezier2Path.Stroke();
         }
-
+        
 
     }
 }

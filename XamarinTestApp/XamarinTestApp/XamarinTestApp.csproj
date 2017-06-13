@@ -39,6 +39,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ConevoArrowActivityIndicator.cs" />
     <Compile Include="Controls\CustomNotifcationDialog.cs" />
     <Compile Include="Controls\EntryWithCurvedCorners.cs" />
     <Compile Include="Controls\IconActivityIndicator.cs" />
