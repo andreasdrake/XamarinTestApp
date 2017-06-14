@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<custom:GradientContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinTestApp.Views.MenuPage">
+             x:Class="XamarinTestApp.Views.MenuPage" 
+             xmlns:custom="clr-namespace:XamarinTestApp.Controls"           
+             Title="Test" Padding="0,40,0,0"
+          Icon="slideout.png"
+             
+             StartColor="{StaticResource PrimaryColor2}" EndColor="#003c00">
+                            <!--EndColor="#006c00">-->
     <Label Text="Menu"/>
-</ContentPage>
+</custom:GradientContentPage>

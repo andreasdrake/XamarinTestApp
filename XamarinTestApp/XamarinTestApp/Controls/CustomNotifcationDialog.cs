@@ -12,35 +12,109 @@ namespace XamarinTestApp.Controls
 
     public class WrappedCustomNotificationDialog : Grid
     {
-        /*
-         
-              <custom:RoundCornersButton Grid.Row="9" Margin="0,20,0,20" Text="Sign in"
-                                           Style="{StaticResource RoundCornersButtonStyle}"    
-                                           Command="{Binding Path=LoginCommand}"
-                                           HorizontalOptions="FillAndExpand"/>
 
-             */
+        private Label _contentLabel;
+        private RoundCornersButton _yesButton;
+        private RoundCornersButton _noButton;
+        private StackLayout _contentStackLayout;
+        private bool _firstTimeAnimatingFromFalse = true;
 
         public WrappedCustomNotificationDialog()
         {
+            CreateContent();
             Children.Add(new CustomNotifcationDialog
             {
                 GradientBackgroundStartColor = GradientBackgroundStartColor,
                 GradientBackgroundStopColor = GradientBackgroundStopColor,
                 StrokeColor = StrokeColor
             });
+            //Children.Add(_contentStackLayout);
         }
 
+        public static readonly BindableProperty DialogTextProperty =
+            BindableProperty.Create(nameof(DialogText), typeof(string), typeof(WrappedCustomNotificationDialog),
+                   propertyChanged: (bindable, oldValue, newValue) =>
+                   {
+                       var dialog = bindable as WrappedCustomNotificationDialog;
+                       if (dialog?._contentLabel != null)
+                       {
+                           dialog._contentLabel.Text = newValue as string;
+                       }
+                   });
+
+        public string DialogText
+        {
+            get { return (string)GetValue(DialogTextProperty); }
+            set { SetValue(DialogTextProperty, value); }
+        }
+
+
+        public static readonly BindableProperty ButtonStyleProperty =
+        BindableProperty.Create(nameof(ButtonStyle), typeof(Style), typeof(WrappedCustomNotificationDialog),
+            propertyChanged: (bindable, oldValue, newValue) =>
+            {
+                var dialog = bindable as WrappedCustomNotificationDialog;
+                if (dialog != null)
+                {
+                    dialog._yesButton.Style = newValue as Style;
+                    dialog._noButton.Style = newValue as Style;
+                }
+            });
+
+        public Style ButtonStyle
+        {
+            get { return (Style)GetValue(ButtonStyleProperty); }
+            set { SetValue(ButtonStyleProperty, value); }
+        }
+
+
+        public static readonly BindableProperty LabelStyleProperty =
+        BindableProperty.Create(nameof(LabelStyle), typeof(Style), typeof(WrappedCustomNotificationDialog), 
+            propertyChanged: (bindable, oldValue, newValue)=>
+                {
+                    var dialog = bindable as WrappedCustomNotificationDialog;
+                    if (dialog != null)
+                    {
+                        dialog._contentLabel.Style = newValue as Style;
+                    }
+                });
+
+       
+        public Style LabelStyle
+        {
+            get { return (Style)GetValue(LabelStyleProperty); }
+            set { SetValue(LabelStyleProperty, value); }
+        }
+
+
         public static readonly BindableProperty YesCommandProperty =
-            BindableProperty.Create(nameof(YesCommand), typeof(ICommand), typeof(WrappedCustomNotificationDialog));
+            BindableProperty.Create(nameof(YesCommand), typeof(ICommand), typeof(WrappedCustomNotificationDialog), 
+                   propertyChanged: (bindable, oldValue, newValue) =>
+                   {
+                       var dialog = bindable as WrappedCustomNotificationDialog;
+                       if (dialog != null)
+                       {
+                           dialog._yesButton.Command = newValue as ICommand;
+                       }
+                   });
 
         public ICommand YesCommand
         {
             get { return (ICommand)GetValue(YesCommandProperty); }
             set { SetValue(YesCommandProperty, value); }
         }
+
+
         public static readonly BindableProperty NoCommandProperty =
-        BindableProperty.Create(nameof(NoCommand), typeof(ICommand), typeof(WrappedCustomNotificationDialog));
+        BindableProperty.Create(nameof(NoCommand), typeof(ICommand), typeof(WrappedCustomNotificationDialog),
+                   propertyChanged: (bindable, oldValue, newValue) =>
+                   {
+                       var dialog = bindable as WrappedCustomNotificationDialog;
+                       if (dialog != null)
+                       {
+                           dialog._noButton.Command = newValue as ICommand;
+                       }
+                   });
 
         public ICommand NoCommand
         {
@@ -48,85 +122,91 @@ namespace XamarinTestApp.Controls
             set { SetValue(NoCommandProperty, value); }
         }
 
-        private void AddContent()
+        private void CreateContent()
         {
-            var contentGrid = new Grid
+            _contentStackLayout = new StackLayout
             {
-                //HorizontalOptions = LayoutOptions.CenterAndExpand,
-                //VerticalOptions = LayoutOptions.Start,
-                Margin = new Thickness(20, 20, 20, 30)
+                Orientation = StackOrientation.Vertical,
+                VerticalOptions = LayoutOptions.End,
+                Margin = new Thickness(20, 20, 20, 30),
+                //IsVisible = false
             };
 
-            contentGrid.RowDefinitions = new RowDefinitionCollection
-            {             
-                new RowDefinition { Height = GridLength.Star },
-                //new RowDefinition { Height = GridLength.Star },
-                new RowDefinition { Height = GridLength.Auto }
-            };
-
-            contentGrid.ColumnDefinitions = new ColumnDefinitionCollection
+            var stackPanelInner = new StackLayout
             {
-                new ColumnDefinition { Width = GridLength.Star },
-                new ColumnDefinition { Width = 10 },
-                new ColumnDefinition { Width = GridLength.Star }
+                Orientation = StackOrientation.Horizontal,
+                VerticalOptions = LayoutOptions.End
             };
 
-            var label = new Label {
-                Text = "Do you want do report 8 h for SCB? Bla bla a lot of extra test text here...",
-                TextColor = Color.White,
-                Style = (Style)Application.Current.Resources["LoginPageLabelUnderTitleStyle"],
+            _contentLabel = new Label
+            {
+                //Text = DialogText,
+                //TextColor = Color.White,
+                //Style = (Style)Application.Current.Resources["LoginPageLabelUnderTitleStyle"],
                 Margin = new Thickness(10),
                 HorizontalOptions = LayoutOptions.Center,
                 LineBreakMode = LineBreakMode.WordWrap
             };
 
-            var yesButton = new RoundCornersButton
+            _yesButton = new RoundCornersButton
             {
                 Text = "Yes",
                 VerticalOptions = LayoutOptions.End,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Style = (Style)Application.Current.Resources["RoundCornersButtonStyle"],
+                //Style = (Style)Application.Current.Resources["RoundCornersButtonStyle"],
                 Command = YesCommand
             };
-            var noButton = new RoundCornersButton
+
+            _noButton = new RoundCornersButton
             {
                 Text = "No",
                 VerticalOptions = LayoutOptions.End,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Style = (Style)Application.Current.Resources["RoundCornersButtonStyle"],
+                //Style = (Style)Application.Current.Resources["RoundCornersButtonStyle"],
                 Command = NoCommand
             };
-            contentGrid.Children.Add(label, 0, 0);
-            Grid.SetColumnSpan(label, 3);
 
-            contentGrid.Children.Add(yesButton, 0, 1);
-            contentGrid.Children.Add(noButton, 2, 1);
+            stackPanelInner.Children.Add(_yesButton);
+            stackPanelInner.Children.Add(_noButton);
 
-            //this.Children.Add(label);
-            this.Children.Add(contentGrid);
+            _contentStackLayout.Children.Add(_contentLabel);
+            _contentStackLayout.Children.Add(stackPanelInner);
         }
+    
 
+        private void ToggleShowContent()
+        {
+            Children.Add(_contentStackLayout);
+            //if (_contentStackLayout != null)
+            //{
+            //    _contentStackLayout.IsVisible = !_contentStackLayout.IsVisible;
+            //}
+            //if (_contentStackLayout != null)
+            //{
+            //    Children.Add(_contentStackLayout);
+            //}
+        }
 
         //public static readonly BindableProperty ContentProperty =
         //    BindableProperty.Create(nameof(Content), typeof(View), typeof(WrappedCustomNotificationDialog), null, 
         //        propertyChanged: OnAnyPropertyChanged);
 
-        //public View Content
-        //{
-        //    get { return (View)GetValue(FillColorProperty); }
-        //    set { SetValue(FillColorProperty, value); }
-        //}
-        //private static void OnAnyPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    var thisControl = bindable as WrappedCustomNotificationDialog;
-        //    if (thisControl != null)
-        //    {
-        //        if (!thisControl.Children.Contains(thisControl.Content))
-        //        {
-        //            thisControl.Children.Add(thisControl.Content);
-        //        }
-        //    }
-        //}
+            //public View Content
+            //{
+            //    get { return (View)GetValue(FillColorProperty); }
+            //    set { SetValue(FillColorProperty, value); }
+            //}
+            //private static void OnAnyPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+            //{
+            //    var thisControl = bindable as WrappedCustomNotificationDialog;
+            //    if (thisControl != null)
+            //    {
+            //        if (!thisControl.Children.Contains(thisControl.Content))
+            //        {
+            //            thisControl.Children.Add(thisControl.Content);
+            //        }
+            //    }
+            //}
 
 
         public static readonly BindableProperty StrokeColorProperty =
@@ -138,9 +218,9 @@ namespace XamarinTestApp.Controls
             set { SetValue(StrokeColorProperty, value); }
         }
 
-
+        //Mörk 0d1829
         public static readonly BindableProperty GradientBackgroundStartColorProperty =
-              BindableProperty.Create(nameof(GradientBackgroundStartColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#0d1829"));
+              BindableProperty.Create(nameof(GradientBackgroundStartColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#00dd00"));
 
         public Color GradientBackgroundStartColor
         {
@@ -148,8 +228,9 @@ namespace XamarinTestApp.Controls
             set { SetValue(GradientBackgroundStartColorProperty, value); }
         }
 
+        //Mörk 080a0c
         public static readonly BindableProperty GradientBackgroundStopColorProperty =
-            BindableProperty.Create(nameof(GradientBackgroundStopColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#080a0c"));
+            BindableProperty.Create(nameof(GradientBackgroundStopColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#009f00"));
 
         public Color GradientBackgroundStopColor
         {
@@ -178,10 +259,10 @@ namespace XamarinTestApp.Controls
             {
                 if (propertyName == Grid.IsVisibleProperty.PropertyName)
                 {
-                    if (IsVisible)
-                    {
-                        Animate(true);
-                    }
+                    //if (IsVisible)
+                    //{
+                        Animate(IsVisible);
+                    //}
                 }
             }
         }
@@ -191,18 +272,26 @@ namespace XamarinTestApp.Controls
             if (animateToShow)
             { 
                 this.Scale = 0;
+                //await this.ScaleTo(1, 200, Easing.SinIn);
                 await this.TranslateTo(0, 100, 1);
                 await Task.WhenAll(
-                    this.ScaleTo(1, 300, Easing.SinIn),
-                    this.TranslateTo(0, 0, 300, Easing.SinIn));
+                  this.ScaleTo(1, 300, Easing.SinIn),
+                  this.TranslateTo(0, 0, 300, Easing.SinIn));
 
-                AddContent();
+                ToggleShowContent();
             }
             else
             {
-                await Task.WhenAll(
-                    this.ScaleTo(0, 300, Easing.SinIn),
-                    this.TranslateTo(-300, -300, 300, Easing.SinIn));
+                if (_firstTimeAnimatingFromFalse)
+                {
+                    _firstTimeAnimatingFromFalse = false;
+                    return;
+                }
+                //await this.ScaleTo(0, 2000, Easing.SinIn);
+                //ToggleShowContent();
+                //await Task.WhenAll(
+                //    this.ScaleTo(0, 300, Easing.SinIn),
+                //    this.TranslateTo(-300, -300, 300, Easing.SinIn));
 
             }
 

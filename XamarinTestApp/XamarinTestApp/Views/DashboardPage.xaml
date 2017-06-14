@@ -6,7 +6,8 @@
              xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
              x:Class="XamarinTestApp.Views.DashboardPage"
              StartColor="{StaticResource DefaultGradientStartBackgroundColor}"
-             EndColor="{StaticResource DefaultGradientStopBackgroundColor}">
+             EndColor="{StaticResource DefaultGradientStopBackgroundColor}" Title="Dashboard"
+                           >
 <!-- 
            xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
 		     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
@@ -96,10 +97,12 @@ WinPhone="20, 20, 20, 20" />
       
       <!--FillColor="#0d1829" HeightRequest="200"-->
       <custom:WrappedCustomNotificationDialog HorizontalOptions="FillAndExpand" 
-                                              YesCommand="{Binding Path=DialogYesCommand}" NoCommand="{Binding Path=DialogNoCommand}"
-                                         Margin="20,0,20,20" VerticalOptions="End" IsVisible="{Binding Path=IsBusy}"  >
+            DialogText="Do you want to report normal 8 hour working day 09:00 - 17:30 with 30 min lunch for client SCB?"
+            ButtonStyle="{StaticResource RoundCornersButtonStyle}"          
+            LabelStyle="{StaticResource LoginPageLabelUnderTitleStyle}"
+            YesCommand="{Binding Path=DialogYesCommand}" NoCommand="{Binding Path=DialogNoCommand}"
+            Margin="20,0,20,20" VerticalOptions="End" IsVisible="{Binding Path=IsBusy}"  />
         
-      </custom:WrappedCustomNotificationDialog>
       <!--<custom:CustoalOptions="FillAndExpand"
                                             FillColor="{StaticResource PrimaryColor2}"
                                             HeightRequest="150" Margin="20,0,20,20" VerticalOptions="End" IsVisible="{Binding Path=IsBusy}"  />mNotifcationDialog Horizont-->

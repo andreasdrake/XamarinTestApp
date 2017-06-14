@@ -190,6 +190,7 @@
     <Compile Include="Renderers\GradientContentPageRenderer.cs" />
     <Compile Include="Renderers\RoundedCornersButtonRenderer.cs" />
     <Compile Include="Renderers\StyleKit.cs" />
+    <Compile Include="Renderers\TransparentNavigationPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\profile_generic.png" />

@@ -50,6 +50,7 @@
     <Compile Include="Controls\CustomNavigationPage.cs" />
     <Compile Include="Controls\CustomButton.cs" />
     <Compile Include="Controls\GradientContentPage.cs" />
+    <Compile Include="Controls\TransparentNavigationPage.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />

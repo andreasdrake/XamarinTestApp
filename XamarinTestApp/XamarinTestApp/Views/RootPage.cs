@@ -1,10 +1,5 @@
-﻿//using Acr.UserDialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using XamarinTestApp.Controls;
 using XamarinTestApp.ViewModels;
 
 namespace XamarinTestApp.Views
@@ -16,13 +11,16 @@ namespace XamarinTestApp.Views
 
         public RootPage()
         {
-            //_loginViewModel = new LoginViewModel(UserDialogs.Instance, OnUserLoggedIn);
             _loginViewModel = new LoginViewModel(OnUserLoggedIn);
             _loginPage = new LoginPage { BindingContext = _loginViewModel };
 
-            var navPage = new NavigationPage(new DashboardPage { BindingContext = new DashboardviewModel() });
-            navPage.SetValue(NavigationPage.BarBackgroundColorProperty, Color.FromHex("#009f00"));// Color.FromHex("#060c14")); //Color.Transparent);//, Color.FromHex("#060c14"));
-            Master = new AboutPage();
+            var navPage = new CustomNavigationPage(new DashboardPage { BindingContext = new DashboardviewModel() });
+            //var navPage = new TransparentNavigationPage(new DashboardPage { BindingContext = new DashboardviewModel() });
+            navPage.BarBackgroundColor = Color.FromHex("#0d1829");
+            navPage.BarTextColor = Color.White;
+            //navPage.BarTitleFontFamily = "Montserrat-Bold";
+
+            Master = new MenuPage();
             Detail = navPage;
             ShowLoginDialog();
         }
