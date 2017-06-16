@@ -14,8 +14,8 @@ namespace XamarinTestApp.Views
             _loginViewModel = new LoginViewModel(OnUserLoggedIn);
             _loginPage = new LoginPage { BindingContext = _loginViewModel };
 
+            
             var navPage = new CustomNavigationPage(new DashboardPage { BindingContext = new DashboardviewModel() });
-            //var navPage = new TransparentNavigationPage(new DashboardPage { BindingContext = new DashboardviewModel() });
             navPage.BarBackgroundColor = Color.FromHex("#0d1829");
             navPage.BarTextColor = Color.White;
             //navPage.BarTitleFontFamily = "Montserrat-Bold";

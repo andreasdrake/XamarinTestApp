@@ -21,8 +21,8 @@
                     <RowDefinition Height="Auto"/><!-- 9: Login Button -->
 
                 </Grid.RowDefinitions>
-                
-        
+
+
                 
                 <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />                
                 
