@@ -2,11 +2,142 @@
 <custom:GradientContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTestApp.Views.MenuPage" 
-             xmlns:custom="clr-namespace:XamarinTestApp.Controls"           
-             Title="Test" Padding="0,40,0,0"
-          Icon="slideout.png"
-             
-             StartColor="{StaticResource PrimaryColor2}" EndColor="#003c00">
-                            <!--EndColor="#006c00">-->
-    <Label Text="Menu"/>
+             xmlns:custom="clr-namespace:XamarinTestApp.Controls" 
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             Icon="slideout.png"
+             Title="Menu"
+             StartColor="{StaticResource PrimaryColor2}"
+             EndColor="#003c00">
+
+
+    <Grid HorizontalOptions="FillAndExpand" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Vertical" Grid.Row="0" HorizontalOptions="FillAndExpand"  BackgroundColor="{StaticResource DefaultGradientStartBackgroundColor}">
+            <controls:CircleImage Source="jag2.png" BorderColor="White" 
+                                    BorderThickness="2" Aspect="AspectFill" 
+                                    WidthRequest="75" HeightRequest="75" 
+                                   HorizontalOptions="Center" Margin="0,40,0,0"/>
+
+            <Label Text="Andreas Drake"  Style="{StaticResource HoursAndDaysLabelStyle}" 
+                                   HorizontalOptions="Center"/>
+            <Label Text="Consultant" Style="{StaticResource LoginPageLabelUnderTitleStyle}" 
+                                   HorizontalOptions="Center" Margin="0,0,0,30" />
+
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical"  Margin="20,40,0,0" HorizontalOptions="Center">
+
+                <!--<BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,0,0,20" HorizontalOptions="Center"/>-->
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="fa-dashboard" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <iconize:IconImage HeightRequest="20" Icon="ion-ios-speedometer" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="Dashboard" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,15,0,15" HorizontalOptions="Center"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="fa-users" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <iconize:IconImage HeightRequest="20" Icon="ion-ios-people" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="Employees" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+
+                <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,15,0,15" HorizontalOptions="Center"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="fa-calendar" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <iconize:IconImage HeightRequest="20" Icon="ion-ios-calendar" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="Time Reports" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+
+                <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,15,0,15" HorizontalOptions="Center"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="fa-calendar-plus-o" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <!--<iconize:IconImage HeightRequest="20" Icon="ion-clock" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <iconize:IconImage HeightRequest="20" Icon="ion-ios-time" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+
+                    <Label Text="Report Today" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,15,0,15" HorizontalOptions="Center"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="fa-sign-out" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <iconize:IconImage HeightRequest="20" Icon="ion-log-out" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="Sign out" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+                <!--<BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,20,0,20" HorizontalOptions="Center"/>-->
+
+                </StackLayout>
+        </ScrollView>
+    </Grid>
+
+    <!-- Left Centered Layout-->
+    <!--<Grid HorizontalOptions="FillAndExpand" Margin="20,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="Start">
+            <controls:CircleImage Source="jag2.png" BorderColor="White" 
+                                    BorderThickness="2" Aspect="AspectFill" 
+                                    WidthRequest="75" HeightRequest="75" 
+                                   HorizontalOptions="Start"/>
+
+            <StackLayout Orientation="Vertical" Margin="5,0,0,0" VerticalOptions="Center">
+                <Label Text="Andreas Drake"  Style="{StaticResource HoursAndDaysLabelStyle}"/>
+                <Label Text="Consultant" Style="{StaticResource LoginPageLabelUnderTitleStyle}" />
+            </StackLayout>
+
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="1" Margin="0,50,0,0" HorizontalOptions="Start">
+
+            <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,0,0,20" HorizontalOptions="Start"/>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <iconize:IconImage HeightRequest="20" Icon="fa-dashboard" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                <Label Text="DASHBOARD" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+            </StackLayout>
+            
+            <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,20,0,20" HorizontalOptions="Start"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <iconize:IconImage HeightRequest="20" Icon="fa-users" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                <Label Text="EMPLOYEES" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+            </StackLayout>
+
+
+            <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,20,0,20" HorizontalOptions="Start"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <iconize:IconImage HeightRequest="20" Icon="fa-calendar" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                <Label Text="TIME REPORTS" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+            </StackLayout>
+
+
+            <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,20,0,20" HorizontalOptions="Start"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <iconize:IconImage HeightRequest="20" Icon="fa-calendar-plus-o" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                <Label Text="REPORT TODAY" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,20,0,20" HorizontalOptions="Start"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <iconize:IconImage HeightRequest="20" Icon="fa-sign-out" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>
+                <Label Text="LOGOUT" Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+            </StackLayout>
+            <BoxView BackgroundColor="White" WidthRequest="40" HeightRequest="1" Opacity="0.6" Margin="0,20,0,20" HorizontalOptions="Start"/>
+
+        </StackLayout>
+    </Grid>-->
 </custom:GradientContentPage>

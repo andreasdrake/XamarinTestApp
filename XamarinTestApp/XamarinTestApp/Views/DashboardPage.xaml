@@ -5,6 +5,7 @@
              xmlns:custom="clr-namespace:XamarinTestApp.Controls"
              xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
              x:Class="XamarinTestApp.Views.DashboardPage"
+                    BackgroundColor="#0d1829"        
              StartColor="{StaticResource DefaultGradientStartBackgroundColor}"
              EndColor="{StaticResource DefaultGradientStopBackgroundColor}" Title="Dashboard"
                            >
@@ -32,15 +33,16 @@
                   <RowDefinition Height="*"/>
                   <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
-              <controls:CircleImage Source="jag2.png" BorderColor="White" 
+              <custom:CircleProgress Grid.Row="0" Margin="0,30,0,0" HeightRequest="150"/>
+              <!--<controls:CircleImage Source="jag2.png" BorderColor="White" 
                                     BorderThickness="2" Aspect="AspectFill" 
                                     WidthRequest="75" HeightRequest="75" 
                                     Margin="0,30,0,0" HorizontalOptions="Center"/>
 
               <Label Text="Andreas Drake" Grid.Row="1" 
-                     Style="{StaticResource UserNameLabelStyle}" Margin="0,20,0,0" HorizontalOptions="Center"/>
+                     Style="{StaticResource UserNameLabelStyle}" Margin="0,20,0,0" HorizontalOptions="Center"/>-->
               <Label Text="May 2017" Grid.Row="2" Style="{StaticResource LoginPageLabelUnderTitleStyle}" FontFamily="Montserrat-Bold"
-                 TextColor="{StaticResource PrimaryColor2}" Margin="0,20,0,0" HorizontalOptions="Center"/>
+                 TextColor="{StaticResource PrimaryColor2}" Margin="0,0,0,0" HorizontalOptions="Center"/>
 
               <Grid Grid.Row="3" Margin="0,40,0,0" HorizontalOptions="Center">
                   <Grid.ColumnDefinitions>

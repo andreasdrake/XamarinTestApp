@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using XamarinTestApp.Effects;
 
 namespace XamarinTestApp.Controls
 {
@@ -13,6 +14,19 @@ namespace XamarinTestApp.Controls
 
         }
 
+        //Solution found at: https://github.com/SeeD-Seifer/ShadowEffectDemo
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            Effects.Add(new ShadowEffect
+            {
+                Radius = 45,
+                DistanceX = 0,
+                DistanceY = 0,
+                Color = Color.Black
+            });
+        }
         //public static readonly BindableProperty BarItemFontSizeProperty =
         //    BindableProperty.Create(
         //    nameof(BarItemFontSize),

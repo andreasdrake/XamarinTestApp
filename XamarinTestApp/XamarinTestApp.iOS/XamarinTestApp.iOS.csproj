@@ -181,6 +181,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CircleProgressRenderer.cs" />
     <Compile Include="Renderers\ConevoArrowActivityIndicatorRenderer.cs" />
     <Compile Include="Renderers\CurvedCornersLabelRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Renderers\CustomNotificationDialogRenderer.cs" />
     <Compile Include="Renderers\EntryWithCurvedCornersRenderer.cs" />
     <Compile Include="Renderers\GradientContentPageRenderer.cs" />
+    <Compile Include="Renderers\PanelShadowEffect.cs" />
     <Compile Include="Renderers\RoundedCornersButtonRenderer.cs" />
     <Compile Include="Renderers\StyleKit.cs" />
     <Compile Include="Renderers\TransparentNavigationPageRenderer.cs" />
@@ -327,6 +329,15 @@
       <Project>{d1e97549-bb2f-416f-8587-a56c6b0be888}</Project>
       <Name>XamarinTestApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stockholm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stockholm2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stockholm3x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

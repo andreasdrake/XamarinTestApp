@@ -20,7 +20,8 @@ namespace XamarinTestApp.Views
             navPage.BarTextColor = Color.White;
             //navPage.BarTitleFontFamily = "Montserrat-Bold";
 
-            Master = new MenuPage();
+            //Master = new MenuPage();
+            Master = new MenuPage2();
             Detail = navPage;
             ShowLoginDialog();
         }

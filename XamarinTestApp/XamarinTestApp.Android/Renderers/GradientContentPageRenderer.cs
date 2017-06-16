@@ -15,7 +15,7 @@ namespace XamarinTestApp.Droid.Renderers
         protected override void DispatchDraw(
             global::Android.Graphics.Canvas canvas)
         {
-            var gradient = new Android.Graphics.LinearGradient(0, 0, Width, 0,
+            var gradient = new Android.Graphics.LinearGradient(0, 0, 0, Height,
                 this.StartColor.ToAndroid(),
                 this.EndColor.ToAndroid(),
                 Android.Graphics.Shader.TileMode.Mirror);

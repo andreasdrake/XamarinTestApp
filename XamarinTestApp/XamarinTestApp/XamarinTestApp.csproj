@@ -39,6 +39,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CircleProgress.cs" />
     <Compile Include="Controls\ConevoArrowActivityIndicator.cs" />
     <Compile Include="Controls\CustomNotifcationDialog.cs" />
     <Compile Include="Controls\EntryWithCurvedCorners.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Controls\CustomButton.cs" />
     <Compile Include="Controls\GradientContentPage.cs" />
     <Compile Include="Controls\TransparentNavigationPage.cs" />
+    <Compile Include="Effects\ShaddowEffect.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
@@ -84,6 +86,9 @@
     </Compile>
     <Compile Include="Views\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuPage2.xaml.cs">
+      <DependentUpon>MenuPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewItemPage.xaml.cs">
       <DependentUpon>NewItemPage.xaml</DependentUpon>
@@ -170,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\DashboardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MenuPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

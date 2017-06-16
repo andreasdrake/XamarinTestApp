@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+         xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinTestApp.Views.MenuPage2" 
+             xmlns:custom="clr-namespace:XamarinTestApp.Controls" 
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             Icon="slideout.png"
+             Title="Menu">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MenuItemTextColor">#cdcfd1</Color>
+            <Color x:Key="MenuLineColor">#00cb00</Color> <!-- 024ea2-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+
+        <AbsoluteLayout>
+
+            <Image Source="stockholm.png" Aspect="AspectFill"/>
+            <BoxView AbsoluteLayout.LayoutBounds="0,150,1,1" AbsoluteLayout.LayoutFlags="XProportional,WidthProportional,HeightProportional" 
+                       BackgroundColor="{StaticResource DefaultGradientStartBackgroundColor}"/>
+           
+            <controls:CircleImage Source="jag2.png" BorderColor="White"
+                                   AbsoluteLayout.LayoutFlags="XProportional"
+                                  AbsoluteLayout.LayoutBounds=".5,100,100,100"
+                                    BorderThickness="2" Aspect="AspectFill" />
+
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="XProportional,WidthProportional,HeightProportional" 
+                                  AbsoluteLayout.LayoutBounds=".5,210,1,1">
+                <Label Text="Andreas Drake"  Style="{StaticResource HoursAndDaysLabelStyle}" HorizontalOptions="Center"/>
+                <Label Text="Consultant" Style="{StaticResource LoginPageLabelUnderTitleStyle}" TextColor="#9ca0a6" />
+
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="ion-ios-speedometer" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <Label Text="DASHBOARD" Style="{StaticResource HoursAndDaysLabelStyle}" TextColor="{StaticResource MenuItemTextColor}" 
+                           HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="{StaticResource MenuLineColor}" HeightRequest="2" 
+                          Margin="0,15,0,15" HorizontalOptions="Center"/>
+
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="ion-ios-people" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <Label Text="EMPLOYEES" Style="{StaticResource HoursAndDaysLabelStyle}" TextColor="{StaticResource MenuItemTextColor}" 
+                           HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="{StaticResource MenuLineColor}" HeightRequest="2" 
+                          Margin="0,15,0,15" HorizontalOptions="Center"/>
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="ion-ios-calendar" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <Label Text="TIME REPORTS" Style="{StaticResource HoursAndDaysLabelStyle}" TextColor="{StaticResource MenuItemTextColor}" 
+                           HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="{StaticResource MenuLineColor}" HeightRequest="2" 
+                          Margin="0,15,0,15" HorizontalOptions="Center"/>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="ion-ios-time" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <Label Text="REPORT TODAY" Style="{StaticResource HoursAndDaysLabelStyle}" TextColor="{StaticResource MenuItemTextColor}" 
+                           HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="{StaticResource MenuLineColor}" HeightRequest="2" 
+                          Margin="0,15,0,15" HorizontalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <!--<iconize:IconImage HeightRequest="20" Icon="ion-log-out" IconColor="White" WidthRequest="20" VerticalOptions="Center"/>-->
+                    <Label Text="SIGN OUT" Style="{StaticResource HoursAndDaysLabelStyle}" TextColor="{StaticResource MenuItemTextColor}" 
+                           HorizontalOptions="Start" Margin="5,0,0,0" VerticalOptions="Center"/>
+                </StackLayout>
+               
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+ 
+</ContentPage>

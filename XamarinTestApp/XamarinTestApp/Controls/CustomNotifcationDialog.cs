@@ -220,7 +220,8 @@ namespace XamarinTestApp.Controls
 
         //Mörk 0d1829
         public static readonly BindableProperty GradientBackgroundStartColorProperty =
-              BindableProperty.Create(nameof(GradientBackgroundStartColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#00dd00"));
+              BindableProperty.Create(nameof(GradientBackgroundStartColor), typeof(Color), typeof(CustomNotifcationDialog), 
+                  Color.FromHex("#00dd00"));
 
         public Color GradientBackgroundStartColor
         {
@@ -230,7 +231,8 @@ namespace XamarinTestApp.Controls
 
         //Mörk 080a0c
         public static readonly BindableProperty GradientBackgroundStopColorProperty =
-            BindableProperty.Create(nameof(GradientBackgroundStopColor), typeof(Color), typeof(CustomNotifcationDialog), Color.FromHex("#009f00"));
+            BindableProperty.Create(nameof(GradientBackgroundStopColor), typeof(Color), typeof(CustomNotifcationDialog),
+                Color.FromHex("#009f00"));
 
         public Color GradientBackgroundStopColor
         {
