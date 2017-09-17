@@ -181,7 +181,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderers\CircleControlRenderer.cs" />
+    <Compile Include="Renderers\Bla.cs" />
+    <Compile Include="Renderers\GradientCircleProgressRenderer.cs" />
     <Compile Include="Renderers\CircleProgressRenderer.cs" />
     <Compile Include="Renderers\ConevoArrowActivityIndicatorRenderer.cs" />
     <Compile Include="Renderers\CurvedCornersLabelRenderer.cs" />

@@ -2,7 +2,7 @@
 
 namespace XamarinTestApp.Controls
 {
-    public class CircleControl : BoxView
+    public class GradientCircleProgress : BoxView
     {
     }
 }

@@ -23,8 +23,10 @@
                 </Grid.RowDefinitions>
 
 
-                
-                <Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />                
+                <Grid Grid.Row="0" HorizontalOptions="Center">
+                <custom:GradientCircleProgress HorizontalOptions="Center" HeightRequest="28" WidthRequest="28" />
+                </Grid>
+                <!--<Image Source="logo.png" HorizontalOptions="Center" Grid.Row="0" />-->                
                 
                 
                 <Label Text="Consult" Grid.Row="1" Style="{StaticResource LoginPageLabelTitleStyle}" Margin="0,30,0,0" HorizontalOptions="Center"/>

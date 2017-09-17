@@ -39,7 +39,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CircleControl.cs" />
+    <Compile Include="Controls\GradientCircleProgress.cs" />
     <Compile Include="Controls\CircleProgress.cs" />
     <Compile Include="Controls\ConevoArrowActivityIndicator.cs" />
     <Compile Include="Controls\CustomNotifcationDialog.cs" />
